@@ -12,9 +12,10 @@ function App() {
 
   return (
     <div
-      className={`${
-        darkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
-      } min-h-screen transition-colors duration-300`}
+      className={`${darkMode
+          ? "bg-[#0a192f] text-gray-300" // Dark navy background with light text
+          : "bg-[#f8f8f8] text-gray-800" // Light off-white background with dark text
+        } min-h-screen transition-colors duration-300`}
     >
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <div className="container mx-auto px-4">
