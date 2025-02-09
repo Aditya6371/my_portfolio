@@ -8,16 +8,9 @@ import Contact from "./components/Contact";
 import React from "react";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
-
   return (
-    <div
-      className={`${darkMode
-          ? "bg-[#0a192f] text-gray-300" // Dark navy background with light text
-          : "bg-[#f8f8f8] text-gray-800" // Light off-white background with dark text
-        } min-h-screen transition-colors duration-300`}
-    >
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+    <div className="bg-[#0a192f] text-gray-300 min-h-screen transition-colors duration-300">
+      <Navbar />
       <div className="container mx-auto px-4">
         <Home />
         <About />

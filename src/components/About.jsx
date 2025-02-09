@@ -39,7 +39,6 @@ function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="space-y-12"
         >
           <div className="flex items-center gap-4">
             <h2 className="text-3xl font-bold">About Me</h2>
@@ -50,7 +49,7 @@ function About() {
             <div className="md:col-span-2 space-y-6">
               <div>
                 <p className="text-gray-400 mb-4">
-                  I'm a Junior iOS Developer with hands-on experience in Swift, Python, Java, and Flutter,
+                  I'm a Software Developer with hands-on experience in Swift, Python, Java, and Flutter,
                   currently engaged in mobile application development at Concept Infoway Pvt Ltd.
                   I'm passionate about creating scalable, user-friendly applications, with a strong foundation
                   in both professional and personal project development.
@@ -73,7 +72,7 @@ function About() {
                       className="space-y-1"
                     >
                       <h4 className="font-medium text-[#64ffda]">{edu.school}</h4>
-                      <p className="text-lg">{edu.degree}</p>
+                      <p className="text-lg text-gray-300">{edu.degree}</p>
                       <p className="text-gray-400">{edu.duration}</p>
                       {edu.gpa && <p className="text-gray-400">GPA: {edu.gpa}</p>}
                       {edu.highlights && (
@@ -110,7 +109,7 @@ function About() {
                           className="flex items-center gap-2"
                         >
                           <span className="text-[#64ffda]">▹</span>
-                          {skill}
+                          <span className="text-gray-300">{skill}</span>
                         </motion.li>
                       ))}
                     </ul>
