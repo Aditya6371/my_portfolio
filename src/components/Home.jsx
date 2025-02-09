@@ -4,6 +4,11 @@ import profilePic from "../assets/profile.png";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 function Home() {
+  const handleResumeClick = () => {
+    // Replace with your resume PDF URL
+    window.open('src/assets/My_resume.pdf', '_blank');
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center py-20">
       <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
@@ -46,34 +51,49 @@ function Home() {
             I'm a software developer specializing in building exceptional digital experiences.
             Currently focused on building accessible, human-centered products.
           </motion.p>
-          <div className="flex space-x-6 pt-4">
-            <motion.a
+
+          <div className="space-y-6">
+            <div className="flex space-x-6">
+              <motion.a
+                whileHover={{ y: -2 }}
+                href="https://github.com/Aditya6371"
+                className="text-2xl text-gray-300 hover:text-[#64ffda] transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub />
+              </motion.a>
+              <motion.a
+                whileHover={{ y: -2 }}
+                href="https://www.linkedin.com/in/aditya-ranjan-das"
+                className="text-2xl text-gray-300 hover:text-[#64ffda] transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin />
+              </motion.a>
+              <motion.a
+                whileHover={{ y: -2 }}
+                href="mailto:adityadas9439@gmail.com"
+                className="text-2xl text-gray-300 hover:text-[#64ffda] transition-colors"
+              >
+                <FaEnvelope />
+              </motion.a>
+            </div>
+
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
               whileHover={{ y: -2 }}
-              href="https://github.com/Aditya6371"
-              className="text-2xl text-gray-300 hover:text-[#64ffda] transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={handleResumeClick}
+              className="px-6 py-3 border border-[#64ffda] text-[#64ffda] rounded hover:bg-[#64ffda]/10 transition-colors duration-300 font-mono"
             >
-              <FaGithub />
-            </motion.a>
-            <motion.a
-              whileHover={{ y: -2 }}
-              href="https://www.linkedin.com/in/aditya-ranjan-das"
-              className="text-2xl text-gray-300 hover:text-[#64ffda] transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedin />
-            </motion.a>
-            <motion.a
-              whileHover={{ y: -2 }}
-              href="mailto:adityadas9439@gmail.com"
-              className="text-2xl text-gray-300 hover:text-[#64ffda] transition-colors"
-            >
-              <FaEnvelope />
-            </motion.a>
+              View Resume
+            </motion.button>
           </div>
         </motion.div>
+
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}

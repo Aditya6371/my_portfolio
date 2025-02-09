@@ -26,13 +26,18 @@ function Navbar() {
     { title: "Contact", to: "contact" },
   ];
 
+  const handleResumeClick = () => {
+    // Replace with your resume PDF URL
+    window.open('src/assets/My_resume.pdf', '_blank');
+  };
+
   return (
     <nav className="fixed w-full z-50 bg-gray-900 bg-opacity-90 backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <h1 className="text-5xl font-bold underline">
             <span className="text-gray-500">A</span>
-            <span className="text-[#64ffda]">R</span>
+            <span className="text-[#64ffda] drop-shadow-[0_0_8px_rgba(100,255,218,0.8)]">R</span>
             <span className="text-gray-500">D</span>
           </h1>
 
@@ -54,13 +59,20 @@ function Navbar() {
                 ignoreCancelEvents={true}
               >
                 <span className={`${activeSection === item.to
-                    ? "text-[#64ffda]"
-                    : "text-gray-400/50 hover:text-gray-400"
+                  ? "text-[#64ffda]"
+                  : "text-gray-400/50 hover:text-gray-400"
                   }`}>
                   {item.title}
                 </span>
               </Link>
             ))}
+
+            <button
+              onClick={handleResumeClick}
+              className="px-4 py-2 border border-[#64ffda] text-[#64ffda] rounded hover:bg-[#64ffda]/10 transition-colors duration-300"
+            >
+              Resume
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -92,13 +104,21 @@ function Navbar() {
                 onClick={() => setIsOpen(false)}
               >
                 <span className={`${activeSection === item.to
-                    ? "text-[#64ffda]"
-                    : "text-gray-400/50 hover:text-gray-400"
+                  ? "text-[#64ffda]"
+                  : "text-gray-400/50 hover:text-gray-400"
                   }`}>
                   {item.title}
                 </span>
               </Link>
             ))}
+
+            {/* Resume button in mobile menu */}
+            <button
+              onClick={handleResumeClick}
+              className="w-full mt-2 px-4 py-2 border border-[#64ffda] text-[#64ffda] rounded hover:bg-[#64ffda]/10 transition-colors duration-300"
+            >
+              Resume
+            </button>
           </div>
         )}
       </div>
