@@ -1,4 +1,10 @@
+import React from "react";
+
 function About() {
-    return <section id="about" className="min-h-screen">About</section>;
+  return (
+    <section id="about" className="min-h-screen">
+      About
+    </section>
+  );
 }
-export default About; 
+export default About;

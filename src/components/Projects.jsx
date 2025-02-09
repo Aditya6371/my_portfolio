@@ -1,4 +1,10 @@
+import React from "react";
+
 function Projects() {
-    return <section id="projects" className="min-h-screen">Projects</section>;
+  return (
+    <section id="projects" className="min-h-screen">
+      Projects
+    </section>
+  );
 }
-export default Projects; 
+export default Projects;
