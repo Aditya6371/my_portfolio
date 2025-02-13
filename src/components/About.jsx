@@ -1,5 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
+import CareerGrowth from './CareerGrowth';
+// import ProjectRecommender from './ProjectRecommender';
+// import SkillAnalyzer from './SkillAnalyzer';
+// import CareerPathVisualizer from './CareerPathVisualizer';
+// import TechStackAnalyzer from './TechStackAnalyzer';
+// import ProjectTimeline from './ProjectTimeline';
+// import CodeGenerator from './CodeGenerator';
 
 function About() {
   const skills = {
@@ -119,6 +126,24 @@ function About() {
             </div>
           </div>
         </motion.div>
+        <div className="grid md:grid-cols-2 gap-8 mt-12">
+          <CareerGrowth />
+        </div>
+
+        {/* <div className="grid md:grid-cols-2 gap-8 mt-8">
+          <ProjectRecommender />
+          <SkillAnalyzer />
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 mt-8">
+          <CareerPathVisualizer />
+          <TechStackAnalyzer />
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 mt-8">
+          <ProjectTimeline />
+          <CodeGenerator />
+        </div> */}
       </div>
     </section>
   );

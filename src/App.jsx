@@ -6,6 +6,7 @@ import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import React from "react";
+import ChatBot from "./components/ChatBot";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Experience />
         <Contact />
       </div>
+      <ChatBot />
     </div>
   );
 }
