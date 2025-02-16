@@ -18,6 +18,10 @@ function Navbar() {
     };
   }, []);
 
+  const setActiveMenu = (section)=>{
+    setActiveSection(section);
+  }
+
   const menuItems = [
     { title: "Home", to: "home" },
     { title: "About", to: "about" },
@@ -25,6 +29,8 @@ function Navbar() {
     { title: "Experience", to: "experience" },
     { title: "Contact", to: "contact" },
   ];
+
+  
 
   const handleResumeClick = () => {
     // Replace with your resume PDF URL
@@ -52,8 +58,8 @@ function Navbar() {
                 offset={-64}
                 duration={500}
                 isDynamic={true}
-                onSetActive={() => setActiveSection(item.to)}
-                onSetInactive={() => { }}
+                onClick={() => setActiveMenu(item.to)}
+                // onSetInactive={() => { }}
                 className={`cursor-pointer transition-colors duration-300`}
                 activeClass="!text-[#64ffda]"
                 ignoreCancelEvents={true}
