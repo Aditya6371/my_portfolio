@@ -127,7 +127,7 @@ function About() {
             </div>
           </div>
         </motion.div>
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mt-8 md:mt-12">
+        <div className="mt-8 md:mt-12">
           <CareerGrowth />
         </div>
       </div>

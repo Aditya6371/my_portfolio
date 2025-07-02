@@ -66,6 +66,76 @@ img {
     overflow: hidden;
 }
 
+/* Futuristic animations for profile image */
+@keyframes orbit {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes orbit-reverse {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+}
+
+@keyframes float-particles {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-10px) rotate(120deg);
+    }
+
+    66% {
+        transform: translateY(5px) rotate(240deg);
+    }
+}
+
+.orbital-ring {
+    animation: orbit 30s linear infinite;
+}
+
+.orbital-ring-reverse {
+    animation: orbit-reverse 25s linear infinite;
+}
+
+.pulse-ring {
+    animation: pulse-ring 4s ease-in-out infinite;
+}
+
+.float-particle {
+    animation: float-particles 6s ease-in-out infinite;
+}
+
 /* Focus styles for accessibility */
 button:focus,
 input:focus,

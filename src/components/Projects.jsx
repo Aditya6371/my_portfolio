@@ -72,7 +72,7 @@ function Projects() {
             <div className="h-px bg-[#64ffda] flex-grow"></div>
           </div>
 
-          <div className="space-y-6 md:space-y-8 lg:space-y-12">
+          <div className="space-y-4 md:space-y-6 lg:space-y-8">
             {majorProjects.map((project, index) => (
               <motion.div
                 key={index}
@@ -81,38 +81,38 @@ function Projects() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative rounded-xl bg-gradient-to-br from-[#64ffda]/20 to-transparent p-[1px] hover:shadow-[0_0_30px_-5px_rgba(100,255,218,0.3)] transition-all duration-300"
               >
-                <div className="relative rounded-xl bg-gradient-to-br from-[#112240] to-[#0a192f] hover:from-[#112240] hover:to-[#1a2f4c] p-4 md:p-6 lg:p-8 transition-all duration-300">
-                  <div className="grid lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
-                    <div className="space-y-3 md:space-y-4 order-2 lg:order-1">
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-                        <span className="text-xl md:text-2xl lg:text-3xl">{project.icon}</span>
+                <div className="relative rounded-xl bg-gradient-to-br from-[#112240] to-[#0a192f] hover:from-[#112240] hover:to-[#1a2f4c] p-3 md:p-4 lg:p-6 transition-all duration-300">
+                  <div className="grid lg:grid-cols-2 gap-3 md:gap-4 lg:gap-6">
+                    <div className="space-y-2 md:space-y-3 order-2 lg:order-1">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                        <span className="text-lg md:text-xl lg:text-2xl">{project.icon}</span>
                         <span className="text-[#64ffda] font-mono text-xs md:text-sm tracking-wider">
                           {project.category}
                         </span>
                       </div>
 
-                      <h3 className="text-lg md:text-xl lg:text-2xl font-bold tracking-tight">{project.title}</h3>
+                      <h3 className="text-base md:text-lg lg:text-xl font-bold tracking-tight">{project.title}</h3>
 
-                      <p className="text-sm md:text-base text-gray-400 leading-relaxed line-clamp-3 md:line-clamp-none">
+                      <p className="text-xs md:text-sm text-gray-400 leading-relaxed line-clamp-2 md:line-clamp-3">
                         {project.description}
                       </p>
 
-                      <div className="flex flex-wrap gap-1.5 md:gap-2 lg:gap-3 pt-1 md:pt-2">
+                      <div className="flex flex-wrap gap-1 md:gap-1.5 lg:gap-2 pt-1">
                         {project.technologies.map((tech, i) => (
                           <span
                             key={i}
-                            className="text-xs md:text-sm font-mono text-[#64ffda] bg-[#112240]/80 px-2 md:px-3 py-1 rounded-full"
+                            className="text-xs md:text-sm font-mono text-[#64ffda] bg-[#112240]/80 px-2 py-0.5 md:py-1 rounded-full"
                           >
                             {tech}
                           </span>
                         ))}
                       </div>
 
-                      <div className="flex gap-3 md:gap-4 pt-1 md:pt-2">
+                      <div className="flex gap-2 md:gap-3 pt-1">
                         {project.playStore && (
                           <a
                             href={project.playStore}
-                            className="text-lg md:text-xl lg:text-2xl text-gray-300 hover:text-[#64ffda] transition-colors p-1 md:p-2"
+                            className="text-base md:text-lg lg:text-xl text-gray-300 hover:text-[#64ffda] transition-colors p-1"
                             target="_blank"
                             rel="noopener noreferrer"
                             title="Play Store"
@@ -123,7 +123,7 @@ function Projects() {
                         {project.appStore && (
                           <a
                             href={project.appStore}
-                            className="text-lg md:text-xl lg:text-2xl text-gray-300 hover:text-[#64ffda] transition-colors p-1 md:p-2"
+                            className="text-base md:text-lg lg:text-xl text-gray-300 hover:text-[#64ffda] transition-colors p-1"
                             target="_blank"
                             rel="noopener noreferrer"
                             title="App Store"
@@ -134,14 +134,23 @@ function Projects() {
                       </div>
                     </div>
 
-                    {/* Project Visual - Smaller on mobile */}
+                    {/* Project Visual - Better space utilization */}
                     <div className="relative order-1 lg:order-2">
-                      <div className="aspect-square max-w-[200px] md:max-w-none mx-auto lg:mx-0 rounded-xl overflow-hidden bg-[#112240]/30 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-300">
-                        <span className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-gray-300 group-hover:scale-110 transition-transform duration-300">
-                          {project.icon}
-                        </span>
+                      <div className="w-full h-full min-h-[200px] md:min-h-[250px] lg:min-h-[280px] mx-auto lg:mx-0 rounded-xl overflow-hidden bg-gradient-to-br from-[#112240]/80 to-[#0a192f]/90 border border-[#64ffda]/20 group-hover:border-[#64ffda]/40 flex items-center justify-center group-hover:scale-[1.02] transition-all duration-300">
+                        <div className="relative flex flex-col items-center justify-center p-6 h-full w-full">
+                          <span className="text-8xl md:text-9xl lg:text-[10rem] text-[#64ffda] group-hover:scale-110 transition-transform duration-300 mb-4">
+                            {project.icon}
+                          </span>
+                          <div className="w-16 md:w-20 lg:w-24 h-0.5 bg-gradient-to-r from-transparent via-[#64ffda]/60 to-transparent"></div>
+                          {/* Additional decorative elements */}
+                          <div className="absolute top-6 right-6 w-3 h-3 bg-[#64ffda]/30 rounded-full group-hover:bg-[#64ffda]/60 transition-colors duration-300"></div>
+                          <div className="absolute bottom-6 left-6 w-2 h-2 bg-[#64ffda]/20 rounded-full group-hover:bg-[#64ffda]/50 transition-colors duration-300"></div>
+                        </div>
+                        {/* Animated background effect */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#64ffda]/5 via-transparent to-[#64ffda]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[#112240]/10 rounded-xl"></div>
+                      {/* Subtle glow effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#64ffda]/10 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
                     </div>
                   </div>
                 </div>
@@ -162,20 +171,20 @@ function Projects() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#112240] p-3 md:p-4 lg:p-6 rounded-lg 
-                  hover:translate-y-[-2px] md:hover:translate-y-[-5px]
-                  hover:shadow-[0_5px_20px_-10px_rgba(100,255,218,0.3)] md:hover:shadow-[0_10px_30px_-15px_rgba(100,255,218,0.3)]
-                  transition-all duration-300 min-h-[160px] md:min-h-[180px] lg:min-h-[200px] flex flex-col"
+                className="bg-[#112240] p-3 md:p-4 lg:p-5 rounded-lg 
+                  hover:translate-y-[-2px] md:hover:translate-y-[-3px]
+                  hover:shadow-[0_5px_20px_-10px_rgba(100,255,218,0.3)] md:hover:shadow-[0_8px_25px_-12px_rgba(100,255,218,0.3)]
+                  transition-all duration-300 min-h-[140px] md:min-h-[150px] lg:min-h-[160px] flex flex-col"
               >
-                <div className="flex justify-between items-start mb-2 md:mb-3 lg:mb-4">
-                  <h3 className="text-base md:text-lg lg:text-xl font-semibold leading-tight">{project.title}</h3>
+                <div className="flex justify-between items-start mb-2 md:mb-3">
+                  <h3 className="text-sm md:text-base lg:text-lg font-semibold leading-tight">{project.title}</h3>
                 </div>
-                <p className="text-xs md:text-sm lg:text-base text-gray-400 mb-2 md:mb-3 lg:mb-4 flex-grow leading-relaxed">{project.description}</p>
-                <div className="flex flex-wrap gap-1 md:gap-1.5 lg:gap-2 mt-auto">
+                <p className="text-xs md:text-sm text-gray-400 mb-2 md:mb-3 flex-grow leading-relaxed">{project.description}</p>
+                <div className="flex flex-wrap gap-1 md:gap-1.5 mt-auto">
                   {project.technologies.map((tech, i) => (
                     <span
                       key={i}
-                      className="text-xs font-mono text-[#64ffda] bg-[#0a192f] px-2 py-0.5 md:py-1 rounded"
+                      className="text-xs font-mono text-[#64ffda] bg-[#0a192f] px-2 py-0.5 rounded"
                     >
                       {tech}
                     </span>

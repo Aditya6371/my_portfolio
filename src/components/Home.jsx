@@ -100,30 +100,49 @@ function Home() {
           className="flex justify-center order-1 lg:order-2"
         >
           <div className="relative group">
-            {/* Outer glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#64ffda]/20 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+            {/* Animated background circles */}
+            <div className="absolute inset-0 -m-4 md:-m-8">
+              <div className="absolute top-0 left-0 w-full h-full rounded-full bg-gradient-to-r from-[#64ffda]/10 to-[#64ffda]/5 blur-2xl group-hover:from-[#64ffda]/20 group-hover:to-[#64ffda]/10 transition-all duration-700"></div>
+              <div className="absolute top-2 left-2 w-[calc(100%-16px)] h-[calc(100%-16px)] rounded-full bg-gradient-to-l from-blue-500/10 to-purple-500/5 blur-xl group-hover:from-blue-500/15 group-hover:to-purple-500/10 transition-all duration-700 delay-100"></div>
+            </div>
 
-            {/* Profile image container */}
+            {/* Main profile container */}
             <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-88 xl:h-88">
-              {/* Image frame with gradient border */}
-              <div className="relative w-full h-full p-1 bg-gradient-to-br from-[#64ffda] via-[#64ffda]/50 to-transparent rounded-2xl group-hover:from-[#64ffda] group-hover:to-[#64ffda]/70 transition-all duration-500">
-                <div className="w-full h-full rounded-2xl overflow-hidden bg-[#0a192f]">
+              {/* Hexagonal mask effect */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#64ffda]/20 via-transparent to-blue-500/20 p-0.5 group-hover:from-[#64ffda]/30 group-hover:to-blue-500/30 transition-all duration-500">
+                <div className="w-full h-full rounded-full overflow-hidden bg-[#0a192f] relative">
                   <img
                     src={profilePic}
                     alt="Aditya Ranjan Das"
-                    className="w-full h-full object-cover object-center filter brightness-90 contrast-110 saturate-110 group-hover:brightness-100 group-hover:scale-105 transition-all duration-500"
+                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                   />
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f]/20 via-transparent to-transparent group-hover:from-transparent transition-all duration-500"></div>
                 </div>
               </div>
 
-              {/* Floating accent border */}
-              <div className="absolute inset-0 border-2 border-[#64ffda]/30 rounded-2xl translate-x-3 translate-y-3 sm:translate-x-4 sm:translate-y-4 md:translate-x-6 md:translate-y-6 -z-10 group-hover:translate-x-1.5 group-hover:translate-y-1.5 sm:group-hover:translate-x-2 sm:group-hover:translate-y-2 md:group-hover:translate-x-3 md:group-hover:translate-y-3 group-hover:border-[#64ffda]/50 transition-all duration-500"></div>
+              {/* Rotating orbital rings */}
+              <div className="absolute inset-0 rounded-full border border-[#64ffda]/30 group-hover:border-[#64ffda]/50 transition-all duration-500 pulse-ring"></div>
+              <div className="absolute inset-[-8px] rounded-full border border-[#64ffda]/20 group-hover:border-[#64ffda]/40 transition-all duration-500 orbital-ring"></div>
+              <div className="absolute inset-[-16px] rounded-full border border-[#64ffda]/10 group-hover:border-[#64ffda]/30 transition-all duration-500 orbital-ring-reverse"></div>
 
-              {/* Corner accents */}
-              <div className="absolute -top-1.5 -left-1.5 sm:-top-2 sm:-left-2 w-5 h-5 sm:w-6 sm:h-6 border-l-2 border-t-2 border-[#64ffda] group-hover:w-6 group-hover:h-6 sm:group-hover:w-8 sm:group-hover:h-8 transition-all duration-300"></div>
-              <div className="absolute -top-1.5 -right-1.5 sm:-top-2 sm:-right-2 w-5 h-5 sm:w-6 sm:h-6 border-r-2 border-t-2 border-[#64ffda] group-hover:w-6 group-hover:h-6 sm:group-hover:w-8 sm:group-hover:h-8 transition-all duration-300"></div>
-              <div className="absolute -bottom-1.5 -left-1.5 sm:-bottom-2 sm:-left-2 w-5 h-5 sm:w-6 sm:h-6 border-l-2 border-b-2 border-[#64ffda] group-hover:w-6 group-hover:h-6 sm:group-hover:w-8 sm:group-hover:h-8 transition-all duration-300"></div>
-              <div className="absolute -bottom-1.5 -right-1.5 sm:-bottom-2 sm:-right-2 w-5 h-5 sm:w-6 sm:h-6 border-r-2 border-b-2 border-[#64ffda] group-hover:w-6 group-hover:h-6 sm:group-hover:w-8 sm:group-hover:h-8 transition-all duration-300"></div>
+              {/* Floating particles */}
+              <div className="absolute top-4 right-4 w-2 h-2 bg-[#64ffda] rounded-full float-particle opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-8 left-6 w-1.5 h-1.5 bg-blue-400 rounded-full float-particle opacity-50 group-hover:opacity-80 transition-opacity duration-300" style={{ animationDelay: '2s' }}></div>
+              <div className="absolute top-12 left-4 w-1 h-1 bg-purple-400 rounded-full float-particle opacity-40 group-hover:opacity-70 transition-opacity duration-300" style={{ animationDelay: '4s' }}></div>
+              <div className="absolute bottom-4 right-8 w-1.5 h-1.5 bg-[#64ffda] rounded-full float-particle opacity-50 group-hover:opacity-90 transition-opacity duration-300" style={{ animationDelay: '1s' }}></div>
+
+              {/* Scanning line effect */}
+              <div className="absolute inset-0 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#64ffda] to-transparent animate-ping"></div>
+                <div className="absolute bottom-0 right-0 w-full h-0.5 bg-gradient-to-l from-transparent via-blue-400 to-transparent animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+              </div>
+
+              {/* Holographic corner indicators */}
+              <div className="absolute top-2 left-2 w-3 h-3 border-l-2 border-t-2 border-[#64ffda] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-125"></div>
+              <div className="absolute top-2 right-2 w-3 h-3 border-r-2 border-t-2 border-[#64ffda] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-125" style={{ transitionDelay: '0.1s' }}></div>
+              <div className="absolute bottom-2 left-2 w-3 h-3 border-l-2 border-b-2 border-[#64ffda] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-125" style={{ transitionDelay: '0.2s' }}></div>
+              <div className="absolute bottom-2 right-2 w-3 h-3 border-r-2 border-b-2 border-[#64ffda] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-125" style={{ transitionDelay: '0.3s' }}></div>
             </div>
           </div>
         </motion.div>
