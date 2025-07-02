@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="bg-[#0a192f] text-gray-300 min-h-screen transition-colors duration-300">
       <Navbar />
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Home />
         <About />
         <Projects />

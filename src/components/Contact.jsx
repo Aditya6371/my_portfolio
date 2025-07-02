@@ -34,68 +34,73 @@ function Contact() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold mb-12 text-center">Get In Touch</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">Get In Touch</h2>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
             {/* Left Column - Text and Social Icons */}
-            <div className="space-y-8">
-              <p className="text-lg text-gray-400">
+            <div className="space-y-6 md:space-y-8">
+              <p className="text-base md:text-lg text-gray-400 leading-relaxed">
                 I'm currently looking for new opportunities and my inbox is always open.
                 Whether you have a question or just want to say hi, I'll try my best to get back to you!
               </p>
 
-              <p className="text-lg text-gray-400">
+              <p className="text-base md:text-lg text-gray-400 leading-relaxed">
                 As a passionate developer with experience in mobile and web development,
                 I'm particularly interested in roles that involve Flutter, iOS development,
                 or full-stack opportunities. I bring strong problem-solving skills and
                 a commitment to creating efficient, user-friendly applications.
               </p>
 
-              <p className="text-lg text-gray-400">
+              <p className="text-base md:text-lg text-gray-400 leading-relaxed">
                 Feel free to reach out if you're looking for a dedicated developer who can
                 bring both technical expertise and creative solutions to your team. I'm always
                 excited to discuss new projects, technologies, or potential collaborations.
               </p>
 
-              <div className="flex flex-wrap justify-center gap-8">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-6 md:gap-8 pt-4">
                 <motion.a
                   whileHover={{ y: -2 }}
                   href="https://github.com/Aditya6371"
-                  className="text-3xl text-gray-300 hover:text-[#64ffda] transition-colors"
+                  className="text-2xl md:text-3xl text-gray-300 hover:text-[#64ffda] transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
+                  title="GitHub"
                 >
                   <FaGithub />
                 </motion.a>
                 <motion.a
                   whileHover={{ y: -2 }}
                   href="https://www.linkedin.com/in/aditya-ranjan-das"
-                  className="text-3xl text-gray-300 hover:text-[#64ffda] transition-colors"
+                  className="text-2xl md:text-3xl text-gray-300 hover:text-[#64ffda] transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
+                  title="LinkedIn"
                 >
                   <FaLinkedin />
                 </motion.a>
                 <motion.a
                   whileHover={{ y: -2 }}
                   href="mailto:adityadas9439@gmail.com"
-                  className="text-3xl text-gray-300 hover:text-[#64ffda] transition-colors"
+                  className="text-2xl md:text-3xl text-gray-300 hover:text-[#64ffda] transition-colors"
+                  title="Email"
                 >
                   <FaEnvelope />
                 </motion.a>
                 <motion.a
                   whileHover={{ y: -2 }}
                   href="tel:+918260625276"
-                  className="text-3xl text-gray-300 hover:text-[#64ffda] transition-colors"
+                  className="text-2xl md:text-3xl text-gray-300 hover:text-[#64ffda] transition-colors"
+                  title="Phone"
                 >
                   <FaPhone />
                 </motion.a>
                 <motion.a
                   whileHover={{ y: -2 }}
                   href="https://wa.me/918260625276"
-                  className="text-3xl text-gray-300 hover:text-[#64ffda] transition-colors"
+                  className="text-2xl md:text-3xl text-gray-300 hover:text-[#64ffda] transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
+                  title="WhatsApp"
                 >
                   <FaWhatsapp />
                 </motion.a>
@@ -105,7 +110,7 @@ function Contact() {
             {/* Right Column - Form */}
             <motion.form
               onSubmit={handleSubmit}
-              className="space-y-6"
+              className="space-y-4 md:space-y-6 bg-[#112240]/30 p-4 md:p-6 lg:p-8 rounded-xl"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
@@ -121,7 +126,7 @@ function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 bg-[#112240] border border-gray-600 rounded-lg focus:outline-none focus:border-[#64ffda] text-gray-300"
+                  className="w-full px-3 md:px-4 py-2 md:py-3 bg-[#112240] border border-gray-600 rounded-lg focus:outline-none focus:border-[#64ffda] focus:ring-1 focus:ring-[#64ffda] text-gray-300 text-sm md:text-base"
                   placeholder="Your name"
                 />
               </div>
@@ -137,7 +142,7 @@ function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 bg-[#112240] border border-gray-600 rounded-lg focus:outline-none focus:border-[#64ffda] text-gray-300"
+                  className="w-full px-3 md:px-4 py-2 md:py-3 bg-[#112240] border border-gray-600 rounded-lg focus:outline-none focus:border-[#64ffda] focus:ring-1 focus:ring-[#64ffda] text-gray-300 text-sm md:text-base"
                   placeholder="your@email.com"
                 />
               </div>
@@ -153,14 +158,14 @@ function Contact() {
                   onChange={handleChange}
                   required
                   rows="4"
-                  className="w-full px-4 py-2 bg-[#112240] border border-gray-600 rounded-lg focus:outline-none focus:border-[#64ffda] text-gray-300"
+                  className="w-full px-3 md:px-4 py-2 md:py-3 bg-[#112240] border border-gray-600 rounded-lg focus:outline-none focus:border-[#64ffda] focus:ring-1 focus:ring-[#64ffda] text-gray-300 resize-vertical text-sm md:text-base"
                   placeholder="Your message"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-transparent border border-[#64ffda] text-[#64ffda] rounded-lg hover:bg-[#64ffda]/10 transition-colors duration-300"
+                className="w-full px-4 md:px-6 py-2 md:py-3 bg-transparent border border-[#64ffda] text-[#64ffda] rounded-lg hover:bg-[#64ffda]/10 transition-colors duration-300 font-medium text-sm md:text-base"
               >
                 Send Message
               </button>

@@ -35,20 +35,20 @@ function SkillAnalyzer() {
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-[#112240] p-6 rounded-lg shadow-xl"
+            className="bg-[#112240] p-4 md:p-6 rounded-lg shadow-xl w-full"
         >
-            <h3 className="text-xl font-bold text-[#64ffda] mb-4">
+            <h3 className="text-lg md:text-xl font-bold text-[#64ffda] mb-3 md:mb-4">
                 AI Skill Analysis
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
                 <div className="flex gap-2 flex-wrap">
                     {Object.keys(skillMatrix).map((role) => (
                         <button
                             key={role}
                             onClick={() => handleAnalyze(role)}
-                            className={`px-4 py-2 rounded-lg transition-colors ${selectedRole === role
-                                    ? 'bg-[#64ffda] text-[#0a192f]'
-                                    : 'bg-[#0a192f] text-gray-300 hover:bg-[#64ffda]/10'
+                            className={`px-3 md:px-4 py-1.5 md:py-2 rounded-lg transition-colors text-sm md:text-base ${selectedRole === role
+                                ? 'bg-[#64ffda] text-[#0a192f]'
+                                : 'bg-[#0a192f] text-gray-300 hover:bg-[#64ffda]/10'
                                 }`}
                         >
                             {role}
@@ -60,10 +60,10 @@ function SkillAnalyzer() {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="mt-6 space-y-4"
+                        className="mt-4 md:mt-6 space-y-3 md:space-y-4"
                     >
                         <div className="relative pt-1">
-                            <div className="text-gray-300 mb-2">Match Score: {analysis.match}%</div>
+                            <div className="text-gray-300 mb-2 text-sm md:text-base">Match Score: {analysis.match}%</div>
                             <div className="overflow-hidden h-2 bg-[#0a192f] rounded">
                                 <motion.div
                                     initial={{ width: 0 }}
@@ -75,19 +75,19 @@ function SkillAnalyzer() {
                         </div>
 
                         <div>
-                            <h4 className="text-gray-300 font-medium">Key Strengths:</h4>
-                            <ul className="list-disc list-inside text-gray-400">
+                            <h4 className="text-gray-300 font-medium text-sm md:text-base mb-2">Key Strengths:</h4>
+                            <ul className="list-disc list-inside text-gray-400 space-y-1">
                                 {analysis.strengths.map((strength, index) => (
-                                    <li key={index}>{strength}</li>
+                                    <li key={index} className="text-sm md:text-base">{strength}</li>
                                 ))}
                             </ul>
                         </div>
 
                         <div>
-                            <h4 className="text-gray-300 font-medium">Suggested Areas for Growth:</h4>
-                            <ul className="list-disc list-inside text-gray-400">
+                            <h4 className="text-gray-300 font-medium text-sm md:text-base mb-2">Suggested Areas for Growth:</h4>
+                            <ul className="list-disc list-inside text-gray-400 space-y-1">
                                 {analysis.suggestions.map((suggestion, index) => (
-                                    <li key={index}>{suggestion}</li>
+                                    <li key={index} className="text-sm md:text-base">{suggestion}</li>
                                 ))}
                             </ul>
                         </div>

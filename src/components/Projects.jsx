@@ -60,19 +60,19 @@ function Projects() {
 
   return (
     <section id="projects" className="min-h-screen py-20">
-      <div className="container mx-auto px-4 max-w-5xl">
+      <div className="container mx-auto px-4 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           {/* Major Projects */}
-          <div className="flex items-center gap-4 mb-12">
-            <h2 className="text-3xl font-bold">Featured Projects</h2>
+          <div className="flex items-center gap-4 mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold">Featured Projects</h2>
             <div className="h-px bg-[#64ffda] flex-grow"></div>
           </div>
 
-          <div className="space-y-12">
+          <div className="space-y-8 md:space-y-12">
             {majorProjects.map((project, index) => (
               <motion.div
                 key={index}
@@ -81,38 +81,38 @@ function Projects() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative rounded-xl bg-gradient-to-br from-[#64ffda]/20 to-transparent p-[1px] hover:shadow-[0_0_30px_-5px_rgba(100,255,218,0.3)] transition-all duration-300"
               >
-                <div className="relative rounded-xl bg-gradient-to-br from-[#112240] to-[#0a192f] hover:from-[#112240] hover:to-[#1a2f4c] p-8 transition-all duration-300">
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-3">
-                        <span className="text-4xl">{project.icon}</span>
-                        <span className="text-[#64ffda] font-mono text-sm tracking-wider">
+                <div className="relative rounded-xl bg-gradient-to-br from-[#112240] to-[#0a192f] hover:from-[#112240] hover:to-[#1a2f4c] p-4 md:p-6 lg:p-8 transition-all duration-300">
+                  <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
+                    <div className="space-y-3 md:space-y-4 order-2 lg:order-1">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                        <span className="text-2xl md:text-3xl lg:text-4xl">{project.icon}</span>
+                        <span className="text-[#64ffda] font-mono text-xs md:text-sm tracking-wider">
                           {project.category}
                         </span>
                       </div>
 
-                      <h3 className="text-2xl font-bold tracking-tight">{project.title}</h3>
+                      <h3 className="text-xl md:text-2xl font-bold tracking-tight">{project.title}</h3>
 
-                      <p className="text-gray-400 leading-relaxed">
+                      <p className="text-sm md:text-base text-gray-400 leading-relaxed">
                         {project.description}
                       </p>
 
-                      <div className="flex flex-wrap gap-3 pt-2">
+                      <div className="flex flex-wrap gap-2 md:gap-3 pt-2">
                         {project.technologies.map((tech, i) => (
                           <span
                             key={i}
-                            className="text-sm font-mono text-[#64ffda] bg-[#112240]/80 px-3 py-1 rounded-full"
+                            className="text-xs md:text-sm font-mono text-[#64ffda] bg-[#112240]/80 px-2 md:px-3 py-1 rounded-full"
                           >
                             {tech}
                           </span>
                         ))}
                       </div>
 
-                      <div className="flex gap-4 pt-2">
+                      <div className="flex gap-3 md:gap-4 pt-2">
                         {project.playStore && (
                           <a
                             href={project.playStore}
-                            className="text-2xl text-gray-300 hover:text-[#64ffda] transition-colors p-2"
+                            className="text-xl md:text-2xl text-gray-300 hover:text-[#64ffda] transition-colors p-1 md:p-2"
                             target="_blank"
                             rel="noopener noreferrer"
                             title="Play Store"
@@ -123,7 +123,7 @@ function Projects() {
                         {project.appStore && (
                           <a
                             href={project.appStore}
-                            className="text-2xl text-gray-300 hover:text-[#64ffda] transition-colors p-2"
+                            className="text-xl md:text-2xl text-gray-300 hover:text-[#64ffda] transition-colors p-1 md:p-2"
                             target="_blank"
                             rel="noopener noreferrer"
                             title="App Store"
@@ -135,9 +135,9 @@ function Projects() {
                     </div>
 
                     {/* Project Visual */}
-                    <div className="relative">
+                    <div className="relative order-1 lg:order-2">
                       <div className="aspect-square rounded-xl overflow-hidden bg-[#112240]/30 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-300">
-                        <span className="text-9xl text-gray-300 group-hover:scale-110 transition-transform duration-300">
+                        <span className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-gray-300 group-hover:scale-110 transition-transform duration-300">
                           {project.icon}
                         </span>
                       </div>
@@ -150,32 +150,32 @@ function Projects() {
           </div>
 
           {/* Minor Projects */}
-          <div className="flex items-center gap-4 mb-12 mt-20">
-            <h2 className="text-3xl font-bold">Other Noteworthy Projects</h2>
+          <div className="flex items-center gap-4 mb-8 md:mb-12 mt-12 md:mt-20">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">Other Noteworthy Projects</h2>
             <div className="h-px bg-[#64ffda] flex-grow"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {minorProjects.map((project, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#112240] p-6 rounded-lg 
+                className="bg-[#112240] p-4 md:p-6 rounded-lg 
                   hover:translate-y-[-5px] 
                   hover:shadow-[0_10px_30px_-15px_rgba(100,255,218,0.3)]
-                  transition-all duration-300"
+                  transition-all duration-300 min-h-[200px] flex flex-col"
               >
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-semibold">{project.title}</h3>
+                <div className="flex justify-between items-start mb-3 md:mb-4">
+                  <h3 className="text-lg md:text-xl font-semibold">{project.title}</h3>
                 </div>
-                <p className="text-gray-400 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mt-auto">
+                <p className="text-sm md:text-base text-gray-400 mb-3 md:mb-4 flex-grow">{project.description}</p>
+                <div className="flex flex-wrap gap-1.5 md:gap-2 mt-auto">
                   {project.technologies.map((tech, i) => (
                     <span
                       key={i}
-                      className="text-sm font-mono text-[#64ffda] bg-[#0a192f] px-2 py-1 rounded"
+                      className="text-xs md:text-sm font-mono text-[#64ffda] bg-[#0a192f] px-2 py-1 rounded"
                     >
                       {tech}
                     </span>

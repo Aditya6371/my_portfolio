@@ -32,36 +32,37 @@ function ProjectRecommender() {
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-[#112240] p-6 rounded-lg shadow-xl"
+            className="bg-[#112240] p-4 md:p-6 rounded-lg shadow-xl w-full"
         >
-            <h3 className="text-xl font-bold text-[#64ffda] mb-4">
+            <h3 className="text-lg md:text-xl font-bold text-[#64ffda] mb-3 md:mb-4">
                 Project Recommendations
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
                 <input
                     type="text"
                     value={userInterests}
                     onChange={(e) => setUserInterests(e.target.value)}
                     placeholder="Enter your interests (e.g., mobile, web, flutter)"
-                    className="w-full p-3 bg-[#0a192f] rounded-lg text-gray-300 border border-gray-700 focus:border-[#64ffda] focus:outline-none"
+                    className="w-full p-2 md:p-3 bg-[#0a192f] rounded-lg text-gray-300 border border-gray-700 focus:border-[#64ffda] focus:outline-none focus:ring-1 focus:ring-[#64ffda] text-sm md:text-base"
                 />
                 <button
                     onClick={handleRecommend}
-                    className="w-full px-4 py-2 bg-[#64ffda] text-[#0a192f] rounded-lg hover:bg-[#64ffda]/90 transition-colors"
+                    className="w-full px-3 md:px-4 py-2 bg-[#64ffda] text-[#0a192f] rounded-lg hover:bg-[#64ffda]/90 transition-colors font-medium text-sm md:text-base"
                 >
                     Get Recommendations
                 </button>
 
                 {recommendations.length > 0 && (
-                    <div className="mt-4 space-y-2">
-                        <h4 className="text-gray-300 font-medium">Recommended Projects:</h4>
-                        <ul className="list-disc list-inside text-gray-400">
+                    <div className="mt-3 md:mt-4 space-y-2">
+                        <h4 className="text-gray-300 font-medium text-sm md:text-base">Recommended Projects:</h4>
+                        <ul className="list-disc list-inside text-gray-400 space-y-1">
                             {recommendations.map((project, index) => (
                                 <motion.li
                                     key={index}
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: index * 0.1 }}
+                                    className="text-sm md:text-base break-words"
                                 >
                                     {project}
                                 </motion.li>

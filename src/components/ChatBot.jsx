@@ -82,9 +82,9 @@ function ChatBot() {
                 {!isOpen && (
                     <button
                         onClick={() => setIsOpen(true)}
-                        className="bg-[#64ffda] text-[#0a192f] p-4 rounded-full shadow-lg hover:bg-[#64ffda]/90 transition-colors"
+                        className="bg-[#64ffda] text-[#0a192f] p-3 md:p-4 rounded-full shadow-lg hover:bg-[#64ffda]/90 transition-colors"
                     >
-                        <FaRobot size={24} />
+                        <FaRobot size={20} className="md:w-6 md:h-6" />
                     </button>
                 )}
             </motion.div>
@@ -95,28 +95,28 @@ function ChatBot() {
                         initial={{ opacity: 0, y: 100 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 100 }}
-                        className="fixed bottom-4 right-4 w-80 bg-[#112240] rounded-lg shadow-xl z-50"
+                        className="fixed bottom-4 right-4 w-72 sm:w-80 md:w-96 bg-[#112240] rounded-lg shadow-xl z-50 max-h-[80vh] flex flex-col"
                     >
-                        <div className="p-4 border-b border-gray-700 flex justify-between items-center">
-                            <h3 className="text-[#64ffda] font-medium flex items-center gap-2">
-                                <FaRobot /> Chat Assistant
+                        <div className="p-3 md:p-4 border-b border-gray-700 flex justify-between items-center flex-shrink-0">
+                            <h3 className="text-[#64ffda] font-medium flex items-center gap-2 text-sm md:text-base">
+                                <FaRobot className="text-base md:text-lg" /> Chat Assistant
                             </h3>
                             <button
                                 onClick={() => setIsOpen(false)}
-                                className="text-gray-400 hover:text-[#64ffda]"
+                                className="text-gray-400 hover:text-[#64ffda] p-1"
                             >
-                                <FaTimes />
+                                <FaTimes className="text-sm md:text-base" />
                             </button>
                         </div>
 
-                        <div className="h-96 overflow-y-auto p-4 space-y-4">
+                        <div className="h-64 sm:h-80 md:h-96 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4 flex-grow">
                             {messages.map((message, index) => (
                                 <div
                                     key={index}
                                     className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
                                 >
                                     <div
-                                        className={`max-w-[80%] p-3 rounded-lg ${message.type === 'user'
+                                        className={`max-w-[85%] sm:max-w-[80%] p-2 md:p-3 rounded-lg text-sm md:text-base ${message.type === 'user'
                                             ? 'bg-[#64ffda] text-[#0a192f]'
                                             : 'bg-[#1d2d50] text-gray-300'
                                             }`}
@@ -128,18 +128,18 @@ function ChatBot() {
                             <div ref={messagesEndRef} />
                         </div>
 
-                        <form onSubmit={handleSubmit} className="p-4 border-t border-gray-700">
+                        <form onSubmit={handleSubmit} className="p-3 md:p-4 border-t border-gray-700 flex-shrink-0">
                             <div className="flex gap-2">
                                 <input
                                     type="text"
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     placeholder="Ask about Aditya..."
-                                    className="flex-1 bg-[#0a192f] text-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#64ffda]"
+                                    className="flex-1 bg-[#0a192f] text-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#64ffda] text-sm md:text-base"
                                 />
                                 <button
                                     type="submit"
-                                    className="bg-[#64ffda] text-[#0a192f] px-4 py-2 rounded-lg hover:bg-[#64ffda]/90 transition-colors"
+                                    className="bg-[#64ffda] text-[#0a192f] px-3 md:px-4 py-2 rounded-lg hover:bg-[#64ffda]/90 transition-colors text-sm md:text-base font-medium"
                                 >
                                     Send
                                 </button>

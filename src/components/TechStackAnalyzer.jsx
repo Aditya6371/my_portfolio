@@ -57,21 +57,21 @@ function TechStackAnalyzer() {
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-[#112240] p-6 rounded-lg shadow-xl"
+            className="bg-[#112240] p-4 md:p-6 rounded-lg shadow-xl w-full"
         >
-            <h3 className="text-xl font-bold text-[#64ffda] mb-4">
+            <h3 className="text-lg md:text-xl font-bold text-[#64ffda] mb-3 md:mb-4">
                 Tech Stack Analyzer
             </h3>
 
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
                 <div className="flex gap-2 flex-wrap">
                     {Object.keys(techStacks).map((type) => (
                         <button
                             key={type}
                             onClick={() => handleAnalyze(type)}
-                            className={`px-4 py-2 rounded-lg transition-colors ${projectType === type
-                                    ? 'bg-[#64ffda] text-[#0a192f]'
-                                    : 'bg-[#0a192f] text-gray-300 hover:bg-[#64ffda]/10'
+                            className={`px-3 md:px-4 py-1.5 md:py-2 rounded-lg transition-colors text-sm md:text-base ${projectType === type
+                                ? 'bg-[#64ffda] text-[#0a192f]'
+                                : 'bg-[#0a192f] text-gray-300 hover:bg-[#64ffda]/10'
                                 }`}
                         >
                             {type}
@@ -83,10 +83,10 @@ function TechStackAnalyzer() {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="mt-6 space-y-6"
+                        className="mt-4 md:mt-6 space-y-4 md:space-y-6"
                     >
                         <div>
-                            <h4 className="text-gray-300 font-medium">Recommended Stack:</h4>
+                            <h4 className="text-gray-300 font-medium text-sm md:text-base mb-2">Recommended Stack:</h4>
                             <div className="flex flex-wrap gap-2 mt-2">
                                 {analysis.recommended.map((tech, index) => (
                                     <motion.span
@@ -94,7 +94,7 @@ function TechStackAnalyzer() {
                                         initial={{ opacity: 0, scale: 0.9 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         transition={{ delay: index * 0.1 }}
-                                        className="px-3 py-1 bg-[#64ffda]/10 text-[#64ffda] rounded-full text-sm"
+                                        className="px-2 md:px-3 py-1 bg-[#64ffda]/10 text-[#64ffda] rounded-full text-xs md:text-sm"
                                     >
                                         {tech}
                                     </motion.span>
@@ -103,7 +103,7 @@ function TechStackAnalyzer() {
                         </div>
 
                         <div>
-                            <h4 className="text-gray-300 font-medium">Alternative Options:</h4>
+                            <h4 className="text-gray-300 font-medium text-sm md:text-base mb-2">Alternative Options:</h4>
                             <div className="flex flex-wrap gap-2 mt-2">
                                 {analysis.alternative.map((tech, index) => (
                                     <motion.span
@@ -111,7 +111,7 @@ function TechStackAnalyzer() {
                                         initial={{ opacity: 0, scale: 0.9 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         transition={{ delay: index * 0.1 }}
-                                        className="px-3 py-1 bg-[#0a192f] text-gray-300 rounded-full text-sm"
+                                        className="px-2 md:px-3 py-1 bg-[#0a192f] text-gray-300 rounded-full text-xs md:text-sm"
                                     >
                                         {tech}
                                     </motion.span>
@@ -119,16 +119,17 @@ function TechStackAnalyzer() {
                             </div>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-4">
+                        <div className="grid lg:grid-cols-2 gap-4">
                             <div>
-                                <h4 className="text-gray-300 font-medium">Pros:</h4>
-                                <ul className="mt-2 list-disc list-inside text-gray-400">
+                                <h4 className="text-gray-300 font-medium text-sm md:text-base mb-2">Pros:</h4>
+                                <ul className="mt-2 list-disc list-inside text-gray-400 space-y-1">
                                     {analysis.pros.map((pro, index) => (
                                         <motion.li
                                             key={index}
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             transition={{ delay: index * 0.1 }}
+                                            className="text-sm md:text-base"
                                         >
                                             {pro}
                                         </motion.li>
@@ -137,14 +138,15 @@ function TechStackAnalyzer() {
                             </div>
 
                             <div>
-                                <h4 className="text-gray-300 font-medium">Cons:</h4>
-                                <ul className="mt-2 list-disc list-inside text-gray-400">
+                                <h4 className="text-gray-300 font-medium text-sm md:text-base mb-2">Cons:</h4>
+                                <ul className="mt-2 list-disc list-inside text-gray-400 space-y-1">
                                     {analysis.cons.map((con, index) => (
                                         <motion.li
                                             key={index}
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             transition={{ delay: index * 0.1 }}
+                                            className="text-sm md:text-base"
                                         >
                                             {con}
                                         </motion.li>

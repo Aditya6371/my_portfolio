@@ -9,7 +9,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "build:docs": "npm run build && rm -rf docs && cp -r dist docs",
+    "deploy:docs": "npm run build:docs && git add docs && git commit -m 'Update docs for GitHub Pages' && git push"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.5",
