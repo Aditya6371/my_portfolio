@@ -72,7 +72,7 @@ function Projects() {
             <div className="h-px bg-[#64ffda] flex-grow"></div>
           </div>
 
-          <div className="space-y-8 md:space-y-12">
+          <div className="space-y-6 md:space-y-8 lg:space-y-12">
             {majorProjects.map((project, index) => (
               <motion.div
                 key={index}
@@ -82,22 +82,22 @@ function Projects() {
                 className="group relative rounded-xl bg-gradient-to-br from-[#64ffda]/20 to-transparent p-[1px] hover:shadow-[0_0_30px_-5px_rgba(100,255,218,0.3)] transition-all duration-300"
               >
                 <div className="relative rounded-xl bg-gradient-to-br from-[#112240] to-[#0a192f] hover:from-[#112240] hover:to-[#1a2f4c] p-4 md:p-6 lg:p-8 transition-all duration-300">
-                  <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
+                  <div className="grid lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
                     <div className="space-y-3 md:space-y-4 order-2 lg:order-1">
                       <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-                        <span className="text-2xl md:text-3xl lg:text-4xl">{project.icon}</span>
+                        <span className="text-xl md:text-2xl lg:text-3xl">{project.icon}</span>
                         <span className="text-[#64ffda] font-mono text-xs md:text-sm tracking-wider">
                           {project.category}
                         </span>
                       </div>
 
-                      <h3 className="text-xl md:text-2xl font-bold tracking-tight">{project.title}</h3>
+                      <h3 className="text-lg md:text-xl lg:text-2xl font-bold tracking-tight">{project.title}</h3>
 
-                      <p className="text-sm md:text-base text-gray-400 leading-relaxed">
+                      <p className="text-sm md:text-base text-gray-400 leading-relaxed line-clamp-3 md:line-clamp-none">
                         {project.description}
                       </p>
 
-                      <div className="flex flex-wrap gap-2 md:gap-3 pt-2">
+                      <div className="flex flex-wrap gap-1.5 md:gap-2 lg:gap-3 pt-1 md:pt-2">
                         {project.technologies.map((tech, i) => (
                           <span
                             key={i}
@@ -108,11 +108,11 @@ function Projects() {
                         ))}
                       </div>
 
-                      <div className="flex gap-3 md:gap-4 pt-2">
+                      <div className="flex gap-3 md:gap-4 pt-1 md:pt-2">
                         {project.playStore && (
                           <a
                             href={project.playStore}
-                            className="text-xl md:text-2xl text-gray-300 hover:text-[#64ffda] transition-colors p-1 md:p-2"
+                            className="text-lg md:text-xl lg:text-2xl text-gray-300 hover:text-[#64ffda] transition-colors p-1 md:p-2"
                             target="_blank"
                             rel="noopener noreferrer"
                             title="Play Store"
@@ -123,7 +123,7 @@ function Projects() {
                         {project.appStore && (
                           <a
                             href={project.appStore}
-                            className="text-xl md:text-2xl text-gray-300 hover:text-[#64ffda] transition-colors p-1 md:p-2"
+                            className="text-lg md:text-xl lg:text-2xl text-gray-300 hover:text-[#64ffda] transition-colors p-1 md:p-2"
                             target="_blank"
                             rel="noopener noreferrer"
                             title="App Store"
@@ -134,10 +134,10 @@ function Projects() {
                       </div>
                     </div>
 
-                    {/* Project Visual */}
+                    {/* Project Visual - Smaller on mobile */}
                     <div className="relative order-1 lg:order-2">
-                      <div className="aspect-square rounded-xl overflow-hidden bg-[#112240]/30 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-300">
-                        <span className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-gray-300 group-hover:scale-110 transition-transform duration-300">
+                      <div className="aspect-square max-w-[200px] md:max-w-none mx-auto lg:mx-0 rounded-xl overflow-hidden bg-[#112240]/30 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-300">
+                        <span className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-gray-300 group-hover:scale-110 transition-transform duration-300">
                           {project.icon}
                         </span>
                       </div>
@@ -155,27 +155,27 @@ function Projects() {
             <div className="h-px bg-[#64ffda] flex-grow"></div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
             {minorProjects.map((project, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#112240] p-4 md:p-6 rounded-lg 
-                  hover:translate-y-[-5px] 
-                  hover:shadow-[0_10px_30px_-15px_rgba(100,255,218,0.3)]
-                  transition-all duration-300 min-h-[200px] flex flex-col"
+                className="bg-[#112240] p-3 md:p-4 lg:p-6 rounded-lg 
+                  hover:translate-y-[-2px] md:hover:translate-y-[-5px]
+                  hover:shadow-[0_5px_20px_-10px_rgba(100,255,218,0.3)] md:hover:shadow-[0_10px_30px_-15px_rgba(100,255,218,0.3)]
+                  transition-all duration-300 min-h-[160px] md:min-h-[180px] lg:min-h-[200px] flex flex-col"
               >
-                <div className="flex justify-between items-start mb-3 md:mb-4">
-                  <h3 className="text-lg md:text-xl font-semibold">{project.title}</h3>
+                <div className="flex justify-between items-start mb-2 md:mb-3 lg:mb-4">
+                  <h3 className="text-base md:text-lg lg:text-xl font-semibold leading-tight">{project.title}</h3>
                 </div>
-                <p className="text-sm md:text-base text-gray-400 mb-3 md:mb-4 flex-grow">{project.description}</p>
-                <div className="flex flex-wrap gap-1.5 md:gap-2 mt-auto">
+                <p className="text-xs md:text-sm lg:text-base text-gray-400 mb-2 md:mb-3 lg:mb-4 flex-grow leading-relaxed">{project.description}</p>
+                <div className="flex flex-wrap gap-1 md:gap-1.5 lg:gap-2 mt-auto">
                   {project.technologies.map((tech, i) => (
                     <span
                       key={i}
-                      className="text-xs md:text-sm font-mono text-[#64ffda] bg-[#0a192f] px-2 py-1 rounded"
+                      className="text-xs font-mono text-[#64ffda] bg-[#0a192f] px-2 py-0.5 md:py-1 rounded"
                     >
                       {tech}
                     </span>

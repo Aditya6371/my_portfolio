@@ -57,6 +57,15 @@ img {
     overflow-wrap: break-word;
 }
 
+/* Line clamp utilities for text truncation */
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 /* Focus styles for accessibility */
 button:focus,
 input:focus,

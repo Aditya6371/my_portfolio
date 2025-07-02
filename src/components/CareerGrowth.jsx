@@ -170,39 +170,42 @@ function CareerGrowth() {
                 Career Growth Analysis
             </h3>
 
-            <div className="grid lg:grid-cols-3 gap-4 md:gap-6">
-                <div className="lg:col-span-2 h-[300px] md:h-[400px]">
+            <div className="grid lg:grid-cols-5 gap-4 md:gap-6">
+                {/* Chart takes up more space on desktop */}
+                <div className="lg:col-span-3 h-[300px] md:h-[350px] lg:h-[380px]">
                     <Line data={animatedData} options={options} />
                 </div>
 
-                <div className="space-y-3 md:space-y-4">
+                {/* Milestones section is more compact */}
+                <div className="lg:col-span-2 space-y-3 md:space-y-4">
                     <h4 className="text-gray-300 font-medium mb-3 md:mb-4 text-sm md:text-base">Key Milestones</h4>
-                    <div className="max-h-[300px] md:max-h-[350px] overflow-y-auto space-y-3 md:space-y-4 pr-2">
+                    <div className="max-h-[280px] md:max-h-[320px] lg:max-h-[350px] overflow-y-auto space-y-2 md:space-y-3 pr-2">
                         {milestones.map((milestone, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.2 }}
-                                className="bg-[#0a192f] p-3 md:p-4 rounded-lg"
+                                className="bg-[#0a192f] p-3 rounded-lg"
                             >
-                                <div className="flex items-center gap-2 mb-1 md:mb-2">
+                                <div className="flex items-center gap-2 mb-1">
                                     <motion.div
                                         initial={{ scale: 0 }}
                                         animate={{ scale: 1 }}
                                         transition={{ delay: index * 0.2 + 0.1 }}
                                         className="w-2 h-2 rounded-full bg-[#64ffda] flex-shrink-0"
                                     />
-                                    <span className="text-[#64ffda] font-medium text-sm md:text-base">{milestone.year}</span>
+                                    <span className="text-[#64ffda] font-medium text-sm">{milestone.year}</span>
                                 </div>
-                                <h5 className="text-gray-300 font-medium mb-1 text-sm md:text-base leading-tight">{milestone.achievement}</h5>
-                                <p className="text-xs md:text-sm text-gray-400 leading-relaxed">{milestone.skills}</p>
+                                <h5 className="text-gray-300 font-medium mb-1 text-sm leading-tight">{milestone.achievement}</h5>
+                                <p className="text-xs text-gray-400 leading-snug">{milestone.skills}</p>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </div>
 
+            {/* Stats section with better mobile/desktop balance */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mt-4 md:mt-6">
                 {[
                     { label: 'Technical Skills', value: '95%' },
@@ -222,7 +225,7 @@ function CareerGrowth() {
                             initial={{ y: 20 }}
                             animate={{ y: 0 }}
                             transition={{ delay: index * 0.1 + 1.2 }}
-                            className="text-[#64ffda] text-lg md:text-xl lg:text-2xl font-bold mb-1"
+                            className="text-[#64ffda] text-lg md:text-xl font-bold mb-1"
                         >
                             {stat.value}
                         </motion.h4>
