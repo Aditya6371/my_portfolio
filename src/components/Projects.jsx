@@ -1,6 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaGooglePlay, FaAppStore } from "react-icons/fa";
+import zerologo from "../assets/zero.png";
+import wediumlogo from "../assets/wedium.png";
+import letschatlogo from "../assets/letschat.png";
+import greenwavelogo from "../assets/greenwave.svg";
 
 function Projects() {
   const majorProjects = [
@@ -11,7 +15,7 @@ function Projects() {
       playStore: "https://play.google.com/store/apps/details?id=com.greenwave",
       appStore: "https://apps.apple.com/in/app/greenwave-terratech/id6479568781",
       category: "Major Project",
-      icon: "🏢",
+      icon: greenwavelogo,
       bgColor: "from-[#1a2f2c] to-[#2a3f3c]"
     },
     {
@@ -21,15 +25,24 @@ function Projects() {
       playStore: "https://play.google.com/store/apps/details?id=com.wedium.customer",
       appStore: "https://apps.apple.com/in/app/wedium/id6444660891",
       category: "Major Project",
-      icon: "🎪",
+      icon: wediumlogo,
       bgColor: "from-[#2d1a2b] to-[#3d2a3b]"
+    },
+    {
+      title: "Zero EV",
+      description: "A comprehensive companion app for electric vehicle users, designed to simplify EV ownership and provide access to essential services. Features include charging station finder with real-time availability, smart parking solutions, EV marketplace, and user-friendly experience with secure digital payments.",
+      technologies: ["Flutter", "Maps Integration", "Real-time Data", "Digital Payments", "OTP Authentication"],
+      playStore: "https://play.google.com/store/apps/details?id=com.zeroapp.ev",
+      category: "Major Project",
+      icon: zerologo,
+      bgColor: "from-[#1a1f38] to-[#2a2f4c]"
     },
     {
       title: "Chat Application",
       description: "A fully functional chat application developed as part of my final semester major project. Built using Flutter for the frontend and Firebase for backend services, enabling real-time messaging and secure user authentication.",
       technologies: ["Flutter", "Firebase", "Real-time Database", "Authentication"],
       category: "Major Project",
-      icon: "💬",
+      icon: letschatlogo,
       bgColor: "from-[#1a1f38] to-[#2a2f4c]"
     },
 
@@ -85,7 +98,13 @@ function Projects() {
                   <div className="grid lg:grid-cols-2 gap-3 md:gap-4 lg:gap-6">
                     <div className="space-y-2 md:space-y-3 order-2 lg:order-1">
                       <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                        <span className="text-lg md:text-xl lg:text-2xl">{project.icon}</span>
+                        <div className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8">
+                          <img
+                            src={project.icon}
+                            alt={project.title}
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
                         <span className="text-[#64ffda] font-mono text-xs md:text-sm tracking-wider">
                           {project.category}
                         </span>
@@ -138,9 +157,13 @@ function Projects() {
                     <div className="relative order-1 lg:order-2">
                       <div className="w-full h-full min-h-[200px] md:min-h-[250px] lg:min-h-[280px] mx-auto lg:mx-0 rounded-xl overflow-hidden bg-gradient-to-br from-[#112240]/80 to-[#0a192f]/90 border border-[#64ffda]/20 group-hover:border-[#64ffda]/40 flex items-center justify-center group-hover:scale-[1.02] transition-all duration-300">
                         <div className="relative flex flex-col items-center justify-center p-6 h-full w-full">
-                          <span className="text-8xl md:text-9xl lg:text-[10rem] text-[#64ffda] group-hover:scale-110 transition-transform duration-300 mb-4">
-                            {project.icon}
-                          </span>
+                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <img
+                              src={project.icon}
+                              alt={project.title}
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
                           <div className="w-16 md:w-20 lg:w-24 h-0.5 bg-gradient-to-r from-transparent via-[#64ffda]/60 to-transparent"></div>
                           {/* Additional decorative elements */}
                           <div className="absolute top-6 right-6 w-3 h-3 bg-[#64ffda]/30 rounded-full group-hover:bg-[#64ffda]/60 transition-colors duration-300"></div>
