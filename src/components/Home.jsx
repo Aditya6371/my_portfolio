@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import profilePic from "../assets/profile.png";
+import profilePic from "../assets/profile.jpg";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 function Home() {
@@ -107,17 +107,17 @@ function Home() {
             </div>
 
             {/* Main profile container */}
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-88 xl:h-88">
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[26rem] xl:h-[26rem]">
               {/* Hexagonal mask effect */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#64ffda]/20 via-transparent to-blue-500/20 p-0.5 group-hover:from-[#64ffda]/30 group-hover:to-blue-500/30 transition-all duration-500">
                 <div className="w-full h-full rounded-full overflow-hidden bg-[#0a192f] relative">
                   <img
                     src={profilePic}
                     alt="Aditya Ranjan Das"
-                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover object-center scale-140 group-hover:scale-105 transition-transform duration-700"
                   />
                   {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f]/20 via-transparent to-transparent group-hover:from-transparent transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f]/10 via-transparent to-transparent group-hover:from-transparent transition-all duration-500"></div>
                 </div>
               </div>
 
