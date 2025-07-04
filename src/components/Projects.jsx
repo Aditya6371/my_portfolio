@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaGooglePlay, FaAppStore } from "react-icons/fa";
-import zerologo from "../assets/zero.png";
+import zerologo from "../assets/zero.svg";
 import wediumlogo from "../assets/wedium.png";
 import letschatlogo from "../assets/letschat.png";
-import greenwavelogo from "../assets/greenwave.svg";
+import greenwavelogo from "../assets/greenwave.png";
 
 function Projects() {
   const majorProjects = [

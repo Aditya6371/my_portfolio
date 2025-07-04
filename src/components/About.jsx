@@ -57,7 +57,7 @@ function About() {
               <div>
                 <p className="text-sm md:text-base text-gray-400 mb-4 leading-relaxed">
                   I'm a Software Developer with hands-on experience in Swift, Python, Java, and Flutter,
-                  currently engaged in mobile application development at Concept Infoway Pvt Ltd.
+                  currently engaged in application development at Appscrip Pvt Ltd for web and mobile platforms.
                   I'm passionate about creating scalable, user-friendly applications, with a strong foundation
                   in both professional and personal project development.
                 </p>
