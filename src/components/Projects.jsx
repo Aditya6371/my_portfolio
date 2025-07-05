@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaGooglePlay, FaAppStore } from "react-icons/fa";
 import { majorProjects, minorProjects } from '../data/portfolioData';
-import ProjectModal from './ProjectModal';
+import ProjectModalSimple from './ProjectModalSimple';
 
 function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -192,7 +192,7 @@ function Projects() {
       </div>
 
       {/* Project Modal */}
-      <ProjectModal
+      <ProjectModalSimple
         project={selectedProject}
         isOpen={isModalOpen}
         onClose={closeModal}
