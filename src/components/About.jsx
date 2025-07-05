@@ -1,43 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CareerGrowth from './CareerGrowth';
-// import ProjectRecommender from './ProjectRecommender';
-// import SkillAnalyzer from './SkillAnalyzer';
-// import CareerPathVisualizer from './CareerPathVisualizer';
-// import TechStackAnalyzer from './TechStackAnalyzer';
-// import ProjectTimeline from './ProjectTimeline';
+import { aboutContent, skills, education } from '../data/portfolioData';
 // import CodeGenerator from './CodeGenerator';
 
 function About() {
-  const skills = {
-    "Programming Languages": ["Swift", "Python", "Java", "Dart"],
-    "Frameworks & Tools": ["Flutter", "Xcode", "Arduino IDE", "RESTful APIs", "GetX"],
-    "Technologies": ["iOS Development", "Bluetooth Communication", "API Integration"],
-    "Soft Skills": ["Team Collaboration", "Problem-Solving", "Adaptability"]
-  };
-
-  const education = [
-    {
-      school: "Gandhi Engineering College",
-      degree: "Bachelor of Technology in Computer Science and Engineering",
-      duration: "2020 - 2024",
-      gpa: "8.29",
-      highlights: [
-        "Member of the Robotics Club",
-        "Captain of the Volleyball Team"
-      ]
-    },
-    {
-      school: "Eastern Academy of Higher Secondary School",
-      degree: "+2 Science",
-      duration: "2018 - 2020"
-    },
-    {
-      school: "Venkateswar English Medium School",
-      degree: "Matriculation",
-      duration: "2017 - 2018"
-    }
-  ];
 
   return (
     <section id="about" className="min-h-screen py-20">
@@ -56,14 +23,10 @@ function About() {
             <div className="lg:col-span-2 space-y-6 md:space-y-8">
               <div>
                 <p className="text-sm md:text-base text-gray-400 mb-4 leading-relaxed">
-                  I'm a Software Developer with hands-on experience in Swift, Python, Java, and Flutter,
-                  currently engaged in application development at Appscrip Pvt Ltd for web and mobile platforms.
-                  I'm passionate about creating scalable, user-friendly applications, with a strong foundation
-                  in both professional and personal project development.
+                  {aboutContent.bio[0]}
                 </p>
                 <p className="text-sm md:text-base text-gray-400 leading-relaxed">
-                  I'm constantly seeking opportunities to further leverage my skills in innovative and
-                  challenging environments, with a particular focus on mobile development and emerging technologies.
+                  {aboutContent.bio[1]}
                 </p>
               </div>
 

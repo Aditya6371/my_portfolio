@@ -1,55 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import appscripLogo from "../assets/appscrip.jpeg";
-import conceptLogo from "../assets/concept.jpeg";
+import { experiences } from '../data/portfolioData';
 
 function Experience() {
-  const experiences = [
-    {
-      company: "Appscrip Pvt Ltd",
-      position: "Flutter Developer",
-      duration: "January 2025 - Present",
-      logo: appscripLogo,
-      description: [
-        "Developed Flutter web admin portal for restaurant management with AI-powered features including content generation, menu optimization, and review analytics",
-        "Integrated real-time analytics dashboard for monitoring restaurant performance metrics",
-        "Implemented automated content generation system for menu descriptions and promotional materials",
-        "Implemented secure authentication and role-based access control for admin users",
-        "Designed and implemented scalable database architecture for multi-tenant system"
-      ]
-    },
-    {
-      company: "Concept Infoway Pvt Ltd",
-      position: "Junior iOS Developer",
-      duration: "June 2024 - January 2025",
-      logo: conceptLogo,
-      description: [
-        "Contributed to the development of various iOS applications, enhancing user experience and functionality",
-        "Developed Helping Hand - a donation management app for NGOs using Swift",
-        "Worked on To Heart - a social media app for posting photos and videos",
-        "Assisted in developing Health Care - a hospital management app",
-        "Implemented secure payment gateway integration for donation processing",
-        "Created custom UI components and animations for enhanced user experience",
-        "Implemented offline data persistence using Core Data"
-      ]
-    },
-    {
-      company: "Concept Infoway Pvt Ltd",
-      position: "Intern iOS Developer",
-      duration: "January 2024 - June 2024",
-      logo: conceptLogo,
-      description: [
-        "Gained practical experience in iOS development using Swift and Xcode",
-        "Worked closely with senior developers on various projects",
-        "Learned and implemented best practices in iOS development",
-        "Participated in code reviews and team discussions",
-        "Assisted in bug fixing and application maintenance",
-        "Learned version control with Git and collaborative development workflows",
-        "Gained experience in working with REST APIs and JSON parsing",
-        "Contributed to UI/UX improvements and app optimization"
-      ]
-    }
-  ];
 
   return (
     <section id="experience" className="min-h-screen py-20">

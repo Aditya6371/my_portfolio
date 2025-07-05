@@ -31,7 +31,7 @@ function ChatBot() {
     const generateResponse = (question) => {
         const questionLower = question.toLowerCase();
 
-        if (questionLower.includes('projects') || questionLower.includes('portfolio')) {
+        if (questionLower.includes('projects') || questionLower.includes('portfolio') || questionLower.includes('project')) {
             setTimeout(() => scrollToSection('projects'), 1000);
             return "Let me show you Aditya's projects. I'm scrolling to the projects section where you can see his work including GreenWave Terratech, Wedium, and other applications.";
         }

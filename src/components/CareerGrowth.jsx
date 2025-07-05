@@ -13,6 +13,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { FaChartLine } from 'react-icons/fa';
+import { careerMilestones } from '../data/portfolioData';
 
 ChartJS.register(
     CategoryScale,
@@ -131,34 +132,6 @@ function CareerGrowth() {
         }
     };
 
-    const milestones = [
-        {
-            year: '2020',
-            achievement: 'Started B.Tech in Computer Science at Gandhi Engineering College',
-            skills: 'Computer Science Fundamentals, Member of Robotics Club'
-        },
-        {
-            year: '2021',
-            achievement: 'Started Learning Mobile Development',
-            skills: 'Swift, Flutter, Mobile Development Basics'
-        },
-        {
-            year: '2024 (Jan-Jun)',
-            achievement: 'Intern iOS Developer at Concept Infoway',
-            skills: 'iOS Development, Swift, Xcode'
-        },
-        {
-            year: '2024 (Jun-Jan)',
-            achievement: 'Junior iOS Developer at Concept Infoway',
-            skills: 'iOS Apps: Helping Hand, To Heart, Health Care'
-        },
-        {
-            year: '2025',
-            achievement: 'Flutter Developer at Appscrip',
-            skills: 'Flutter, AI Integration, ML Models'
-        }
-    ];
-
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -217,7 +190,7 @@ function CareerGrowth() {
                 <div className="space-y-2 md:space-y-3">
                     <h4 className="text-gray-300 font-medium mb-3 md:mb-4 text-sm md:text-base">Key Milestones</h4>
                     <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
-                        {milestones.map((milestone, index) => (
+                        {careerMilestones.map((milestone, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}

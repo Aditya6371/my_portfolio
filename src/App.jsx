@@ -7,6 +7,7 @@ import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import React from "react";
 import ChatBot from "./components/ChatBot";
+import DataManagementPanel from "./components/DataManagementPanel";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Contact />
       </div>
       <ChatBot />
+      {/* <DataManagementPanel /> */}
     </div>
   );
 }

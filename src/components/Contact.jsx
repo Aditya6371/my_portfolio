@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaWhatsapp } from "react-icons/fa";
+import { contactInfo, personalInfo, socialLinks } from '../data/portfolioData';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ function Contact() {
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     );
-    window.location.href = `mailto:adityadas9439@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
     setFormData({ name: '', email: '', message: '' });
   };
 
@@ -34,33 +35,23 @@ function Contact() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">Get In Touch</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">{contactInfo.title}</h2>
 
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
             {/* Left Column - Text and Social Icons */}
             <div className="space-y-6 md:space-y-8">
               <p className="text-base md:text-lg text-gray-400 leading-relaxed">
-                I'm currently looking for new opportunities and my inbox is always open.
-                Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                {contactInfo.description[0]}
               </p>
 
               <p className="text-base md:text-lg text-gray-400 leading-relaxed">
-                As a passionate developer with experience in mobile and web development,
-                I'm particularly interested in roles that involve Flutter, iOS development,
-                or full-stack opportunities. I bring strong problem-solving skills and
-                a commitment to creating efficient, user-friendly applications.
-              </p>
-
-              <p className="text-base md:text-lg text-gray-400 leading-relaxed">
-                Feel free to reach out if you're looking for a dedicated developer who can
-                bring both technical expertise and creative solutions to your team. I'm always
-                excited to discuss new projects, technologies, or potential collaborations.
+                {contactInfo.description[1]}
               </p>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-6 md:gap-8 pt-4">
                 <motion.a
                   whileHover={{ y: -2 }}
-                  href="https://github.com/Aditya6371"
+                  href={socialLinks.github}
                   className="text-2xl md:text-3xl text-gray-300 hover:text-[#64ffda] transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -70,7 +61,7 @@ function Contact() {
                 </motion.a>
                 <motion.a
                   whileHover={{ y: -2 }}
-                  href="https://www.linkedin.com/in/aditya-ranjan-das"
+                  href={socialLinks.linkedin}
                   className="text-2xl md:text-3xl text-gray-300 hover:text-[#64ffda] transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -80,7 +71,7 @@ function Contact() {
                 </motion.a>
                 <motion.a
                   whileHover={{ y: -2 }}
-                  href="mailto:adityadas9439@gmail.com"
+                  href={socialLinks.email}
                   className="text-2xl md:text-3xl text-gray-300 hover:text-[#64ffda] transition-colors"
                   title="Email"
                 >
@@ -88,7 +79,7 @@ function Contact() {
                 </motion.a>
                 <motion.a
                   whileHover={{ y: -2 }}
-                  href="tel:+918260625276"
+                  href={`tel:${personalInfo.phone}`}
                   className="text-2xl md:text-3xl text-gray-300 hover:text-[#64ffda] transition-colors"
                   title="Phone"
                 >
@@ -96,7 +87,7 @@ function Contact() {
                 </motion.a>
                 <motion.a
                   whileHover={{ y: -2 }}
-                  href="https://wa.me/918260625276"
+                  href={socialLinks.whatsapp}
                   className="text-2xl md:text-3xl text-gray-300 hover:text-[#64ffda] transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"

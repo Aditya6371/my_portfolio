@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, Events, scrollSpy } from "react-scroll";
 import { FaBars, FaTimes } from "react-icons/fa";
 import React from "react";
-import logo from "../assets/logo.png";
+import { navItems, personalInfo } from "../data/portfolioData";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,18 +23,8 @@ function Navbar() {
     setActiveSection(section);
   }
 
-  const menuItems = [
-    { title: "Home", to: "home" },
-    { title: "About", to: "about" },
-    { title: "Projects", to: "projects" },
-    { title: "Experience", to: "experience" },
-    { title: "Contact", to: "contact" },
-  ];
-
-
-
   const handleResumeClick = () => {
-    window.open('https://drive.google.com/file/d/1mFTE_MPDoPUbykQ3UHHJ8VWC85U8dIbL/view?usp=share_link', '_blank');
+    window.open(personalInfo.resumeUrl, '_blank');
   };
 
   return (
@@ -56,25 +46,25 @@ function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
-            {menuItems.map((item) => (
+            {navItems.map((item) => (
               <Link
-                key={item.to}
-                to={item.to}
+                key={item.href.substring(1)}
+                to={item.href.substring(1)}
                 spy={true}
                 smooth={true}
                 offset={-64}
                 duration={500}
                 isDynamic={true}
-                onClick={() => setActiveMenu(item.to)}
+                onClick={() => setActiveMenu(item.href.substring(1))}
                 className={`cursor-pointer transition-colors duration-300 text-sm lg:text-base`}
                 activeClass="!text-[#64ffda]"
                 ignoreCancelEvents={true}
               >
-                <span className={`${activeSection === item.to
+                <span className={`${activeSection === item.href.substring(1)
                   ? "text-[#64ffda]"
                   : "text-gray-400/50 hover:text-gray-400"
                   }`}>
-                  {item.title}
+                  {item.name}
                 </span>
               </Link>
             ))}
@@ -99,27 +89,27 @@ function Navbar() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden pb-4 bg-gray-900/95 backdrop-blur-sm">
-            {menuItems.map((item) => (
+            {navItems.map((item) => (
               <Link
-                key={item.to}
-                to={item.to}
+                key={item.href.substring(1)}
+                to={item.href.substring(1)}
                 spy={true}
                 smooth={true}
                 offset={-64}
                 duration={500}
                 isDynamic={true}
-                onSetActive={() => setActiveSection(item.to)}
+                onSetActive={() => setActiveSection(item.href.substring(1))}
                 onSetInactive={() => { }}
                 className={`block py-3 px-2 transition-colors duration-300 text-base`}
                 activeClass="!text-[#64ffda]"
                 ignoreCancelEvents={true}
                 onClick={() => setIsOpen(false)}
               >
-                <span className={`${activeSection === item.to
+                <span className={`${activeSection === item.href.substring(1)
                   ? "text-[#64ffda]"
                   : "text-gray-400/50 hover:text-gray-400"
                   }`}>
-                  {item.title}
+                  {item.name}
                 </span>
               </Link>
             ))}
