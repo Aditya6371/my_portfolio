@@ -1,22 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { FaGooglePlay, FaAppStore } from "react-icons/fa";
 import { majorProjects, minorProjects } from '../data/portfolioData';
-import ProjectModalSimple from './ProjectModalSimple';
 
 function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleProjectClick = (project) => {
-    setSelectedProject(project);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedProject(null);
-  };
 
   return (
     <section id="projects" className="min-h-screen py-20">
@@ -32,107 +19,114 @@ function Projects() {
             <div className="h-px bg-[#64ffda] flex-grow"></div>
           </div>
 
-          <div className="space-y-4 md:space-y-6 lg:space-y-8">
+          <div className="space-y-6 md:space-y-8">
             {majorProjects.map((project, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative rounded-xl bg-gradient-to-br from-[#64ffda]/20 to-transparent p-[1px] hover:shadow-[0_0_30px_-5px_rgba(100,255,218,0.3)] transition-all duration-300 cursor-pointer"
-                onClick={() => handleProjectClick(project)}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="group relative"
               >
-                <div className="relative rounded-xl bg-gradient-to-br from-[#112240] to-[#0a192f] hover:from-[#112240] hover:to-[#1a2f4c] p-3 md:p-4 lg:p-6 transition-all duration-300">
-                  <div className="grid lg:grid-cols-2 gap-3 md:gap-4 lg:gap-6">
-                    <div className="space-y-2 md:space-y-3 order-2 lg:order-1">
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                        <div className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8">
-                          <img
-                            src={project.icon}
-                            alt={project.title}
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                        <span className="text-[#64ffda] font-mono text-xs md:text-sm tracking-wider">
-                          {project.category}
-                        </span>
-                      </div>
+                {/* Animated gradient border */}
+                <div className="absolute -inset-[1px] bg-gradient-to-r from-[#64ffda]/40 via-[#64ffda]/20 to-[#64ffda]/40 rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-500"></div>
 
-                      <h3 className="text-base md:text-lg lg:text-xl font-bold tracking-tight">{project.title}</h3>
+                {/* Main card */}
+                <div className="relative rounded-2xl bg-gradient-to-br from-[#112240]/95 to-[#0a192f]/95 backdrop-blur-sm border border-[#64ffda]/20 group-hover:border-[#64ffda]/40 overflow-hidden transition-all duration-500 group-hover:scale-[1.01] group-hover:shadow-[0_20px_60px_-15px_rgba(100,255,218,0.3)]">
 
-                      <p className="text-xs md:text-sm text-gray-400 leading-relaxed line-clamp-2 md:line-clamp-3">
-                        {project.description}
-                      </p>
+                  {/* Background gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#64ffda]/5 via-transparent to-[#64ffda]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                      <div className="flex flex-wrap gap-1 md:gap-1.5 lg:gap-2 pt-1">
-                        {project.technologies.map((tech, i) => (
-                          <span
-                            key={i}
-                            className="text-xs md:text-sm font-mono text-[#64ffda] bg-[#112240]/80 px-2 py-0.5 md:py-1 rounded-full"
+                  <div className="relative p-6 md:p-8 lg:p-10">
+                    <div className="grid lg:grid-cols-[auto_1fr] gap-6 md:gap-8 lg:gap-10">
+
+                      {/* Icon Section - Left Side */}
+                      <div className="flex justify-center lg:justify-start">
+                        <div className="relative">
+                          {/* Glowing background */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-[#64ffda]/10 to-transparent rounded-full blur-lg group-hover:blur-xl transition-all duration-500"></div>
+
+                          {/* Icon container */}
+                          <motion.div
+                            whileHover={{ scale: 1.05, rotate: 5 }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                            className="relative w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-[#112240] to-[#0a192f] border-2 border-[#64ffda]/30 group-hover:border-[#64ffda]/60 flex items-center justify-center overflow-hidden transition-all duration-500"
                           >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
+                            {/* Pulsing effect - Removed */}
 
-                      <div className="flex gap-2 md:gap-3 pt-1">
-                        {project.playStore && (
-                          <a
-                            href={project.playStore}
-                            className="text-base md:text-lg lg:text-xl text-gray-300 hover:text-[#64ffda] transition-colors p-1"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            title="Play Store"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <FaGooglePlay />
-                          </a>
-                        )}
-                        {project.appStore && (
-                          <a
-                            href={project.appStore}
-                            className="text-base md:text-lg lg:text-xl text-gray-300 hover:text-[#64ffda] transition-colors p-1"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            title="App Store"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <FaAppStore />
-                          </a>
-                        )}
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleProjectClick(project);
-                          }}
-                          className="text-xs md:text-sm bg-[#64ffda]/10 hover:bg-[#64ffda]/20 text-[#64ffda] px-3 py-1 rounded-full border border-[#64ffda]/30 hover:border-[#64ffda]/50 transition-colors"
-                        >
-                          View Details
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Project Visual - Better space utilization */}
-                    <div className="relative order-1 lg:order-2">
-                      <div className="w-full h-full min-h-[200px] md:min-h-[250px] lg:min-h-[280px] mx-auto lg:mx-0 rounded-xl overflow-hidden bg-gradient-to-br from-[#112240]/80 to-[#0a192f]/90 border border-[#64ffda]/20 group-hover:border-[#64ffda]/40 flex items-center justify-center group-hover:scale-[1.02] transition-all duration-300">
-                        <div className="relative flex flex-col items-center justify-center p-6 h-full w-full">
-                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 mb-4 group-hover:scale-110 transition-transform duration-300">
                             <img
                               src={project.icon}
                               alt={project.title}
-                              className="w-full h-full object-contain"
+                              className="relative z-10 w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain filter drop-shadow-[0_0_10px_rgba(100,255,218,0.3)]"
                             />
-                          </div>
-                          <div className="w-16 md:w-20 lg:w-24 h-0.5 bg-gradient-to-r from-transparent via-[#64ffda]/60 to-transparent"></div>
-                          {/* Additional decorative elements */}
-                          <div className="absolute top-6 right-6 w-3 h-3 bg-[#64ffda]/30 rounded-full group-hover:bg-[#64ffda]/60 transition-colors duration-300"></div>
-                          <div className="absolute bottom-6 left-6 w-2 h-2 bg-[#64ffda]/20 rounded-full group-hover:bg-[#64ffda]/50 transition-colors duration-300"></div>
+                          </motion.div>
                         </div>
-                        {/* Animated background effect */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#64ffda]/5 via-transparent to-[#64ffda]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
-                      {/* Subtle glow effect */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#64ffda]/10 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+
+                      {/* Content Section - Right Side */}
+                      <div className="space-y-4 md:space-y-5">
+
+                        {/* Category Badge */}
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#64ffda]/10 border border-[#64ffda]/30">
+                          <div className="w-2 h-2 rounded-full bg-[#64ffda] animate-pulse"></div>
+                          <span className="text-[#64ffda] font-mono text-xs md:text-sm tracking-wider uppercase">
+                            {project.category}
+                          </span>
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-white via-[#ccd6f6] to-[#8892b0] bg-clip-text text-transparent leading-tight">
+                          {project.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-sm md:text-base text-[#8892b0] leading-relaxed max-w-3xl">
+                          {project.description}
+                        </p>
+
+                        {/* Technology Tags */}
+                        <div className="flex flex-wrap gap-2 md:gap-2.5 pt-2">
+                          {project.technologies.map((tech, i) => (
+                            <motion.span
+                              key={i}
+                              whileHover={{ scale: 1.05, y: -2 }}
+                              className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-mono text-[#64ffda] bg-[#0a192f]/80 border border-[#64ffda]/20 hover:border-[#64ffda]/50 rounded-lg backdrop-blur-sm transition-all duration-300 hover:shadow-[0_0_15px_rgba(100,255,218,0.2)]"
+                            >
+                              {tech}
+                            </motion.span>
+                          ))}
+                        </div>
+
+                        {/* Store Links */}
+                        <div className="flex gap-3 md:gap-4 pt-2">
+                          {project.playStore && (
+                            <motion.a
+                              whileHover={{ scale: 1.1, y: -2 }}
+                              whileTap={{ scale: 0.95 }}
+                              href={project.playStore}
+                              className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-xl bg-[#0a192f]/80 border border-[#64ffda]/20 hover:border-[#64ffda]/50 text-[#8892b0] hover:text-[#64ffda] transition-all duration-300 hover:shadow-[0_0_20px_rgba(100,255,218,0.3)]"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              title="Play Store"
+                            >
+                              <FaGooglePlay className="text-xl md:text-2xl" />
+                            </motion.a>
+                          )}
+                          {project.appStore && (
+                            <motion.a
+                              whileHover={{ scale: 1.1, y: -2 }}
+                              whileTap={{ scale: 0.95 }}
+                              href={project.appStore}
+                              className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-xl bg-[#0a192f]/80 border border-[#64ffda]/20 hover:border-[#64ffda]/50 text-[#8892b0] hover:text-[#64ffda] transition-all duration-300 hover:shadow-[0_0_20px_rgba(100,255,218,0.3)]"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              title="App Store"
+                            >
+                              <FaAppStore className="text-xl md:text-2xl" />
+                            </motion.a>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -146,44 +140,69 @@ function Projects() {
             <div className="h-px bg-[#64ffda] flex-grow"></div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
             {minorProjects.map((project, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#112240] p-3 md:p-4 lg:p-5 rounded-lg 
-                  hover:translate-y-[-2px] md:hover:translate-y-[-3px]
-                  hover:shadow-[0_5px_20px_-10px_rgba(100,255,218,0.3)] md:hover:shadow-[0_8px_25px_-12px_rgba(100,255,218,0.3)]
-                  transition-all duration-300 min-h-[140px] md:min-h-[150px] lg:min-h-[160px] flex flex-col cursor-pointer"
-                onClick={() => handleProjectClick(project)}
+                className="group relative"
               >
-                <div className="flex justify-between items-start mb-2 md:mb-3">
-                  <div className="flex items-center gap-2">
-                    {project.icon && (
-                      <div className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0">
-                        <img
-                          src={project.icon}
-                          alt={project.title}
-                          className="w-full h-full object-contain rounded"
-                        />
-                      </div>
-                    )}
-                    <h3 className="text-sm md:text-base lg:text-lg font-semibold leading-tight">{project.title}</h3>
+                {/* Gradient border on hover */}
+                <div className="absolute -inset-[1px] bg-gradient-to-br from-[#64ffda]/30 to-[#64ffda]/10 rounded-xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-300"></div>
+
+                {/* Card */}
+                <div className="relative h-full rounded-xl bg-gradient-to-br from-[#112240]/90 to-[#0a192f]/90 backdrop-blur-sm border border-[#64ffda]/20 group-hover:border-[#64ffda]/40 p-4 md:p-5 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-[0_10px_40px_-10px_rgba(100,255,218,0.2)] flex flex-col">
+
+                  {/* Background overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#64ffda]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+
+                  <div className="relative z-10 flex flex-col h-full">
+                    {/* Header with icon and category */}
+                    <div className="flex justify-between items-start mb-3">
+                      {project.icon && (
+                        <div className="relative flex-shrink-0">
+                          {/* Icon glow - more subtle */}
+                          <div className="absolute inset-0 bg-[#64ffda]/15 rounded-lg blur-sm group-hover:blur-md transition-all duration-300"></div>
+
+                          <div className="relative w-9 h-9 md:w-10 md:h-10 rounded-lg bg-gradient-to-br from-[#112240] to-[#0a192f] border border-[#64ffda]/30 group-hover:border-[#64ffda]/50 flex items-center justify-center overflow-hidden transition-all duration-300">
+                            <img
+                              src={project.icon}
+                              alt={project.title}
+                              className="w-5 h-5 md:w-6 md:h-6 object-contain filter drop-shadow-[0_0_5px_rgba(100,255,218,0.3)]"
+                            />
+                          </div>
+                        </div>
+                      )}
+
+                      <span className="text-[10px] md:text-xs text-[#64ffda] font-mono px-2 py-0.5 md:py-1 rounded-md bg-[#64ffda]/10 border border-[#64ffda]/20 ml-2">
+                        {project.category}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-base md:text-lg font-bold text-white mb-2 leading-tight group-hover:text-[#64ffda] transition-colors duration-300">
+                      {project.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-xs md:text-sm text-[#8892b0] leading-relaxed mb-3 flex-grow line-clamp-3">
+                      {project.description}
+                    </p>
+
+                    {/* Technology Tags */}
+                    <div className="flex flex-wrap gap-1.5 mt-auto">
+                      {project.technologies.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="text-[10px] md:text-xs font-mono text-[#64ffda] bg-[#0a192f]/60 border border-[#64ffda]/20 px-2 py-0.5 md:py-1 rounded-md transition-all duration-200 hover:border-[#64ffda]/40 hover:bg-[#0a192f]/80"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <span className="text-xs text-[#64ffda] font-mono flex-shrink-0">{project.category}</span>
-                </div>
-                <p className="text-xs md:text-sm text-gray-400 mb-2 md:mb-3 flex-grow leading-relaxed">{project.description}</p>
-                <div className="flex flex-wrap gap-1 md:gap-1.5 mt-auto">
-                  {project.technologies.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="text-xs font-mono text-[#64ffda] bg-[#0a192f] px-2 py-0.5 rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
                 </div>
               </motion.div>
             ))}
@@ -191,12 +210,6 @@ function Projects() {
         </motion.div>
       </div>
 
-      {/* Project Modal */}
-      <ProjectModalSimple
-        project={selectedProject}
-        isOpen={isModalOpen}
-        onClose={closeModal}
-      />
     </section>
   );
 }
