@@ -82,7 +82,7 @@ function ChatBot() {
                 {!isOpen && (
                     <button
                         onClick={() => setIsOpen(true)}
-                        className="bg-[#64ffda] text-[#0a192f] p-3 md:p-4 rounded-full shadow-lg hover:bg-[#64ffda]/90 transition-colors"
+                        className="bg-accent-secondary text-bg-primary p-3 md:p-4 rounded-full shadow-lg hover:bg-accent-secondary/90 transition-colors shadow-accent-secondary/20"
                     >
                         <FaRobot size={20} className="md:w-6 md:h-6" />
                     </button>
@@ -95,21 +95,21 @@ function ChatBot() {
                         initial={{ opacity: 0, y: 100 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 100 }}
-                        className="fixed bottom-4 right-4 w-72 sm:w-80 md:w-96 bg-[#112240] rounded-lg shadow-xl z-50 max-h-[80vh] flex flex-col"
+                        className="fixed bottom-4 right-4 w-72 sm:w-80 md:w-96 bg-bg-secondary rounded-lg shadow-2xl z-50 max-h-[80vh] flex flex-col border border-bg-tertiary"
                     >
-                        <div className="p-3 md:p-4 border-b border-gray-700 flex justify-between items-center flex-shrink-0">
-                            <h3 className="text-[#64ffda] font-medium flex items-center gap-2 text-sm md:text-base">
+                        <div className="p-3 md:p-4 border-b border-bg-tertiary flex justify-between items-center flex-shrink-0 bg-bg-tertiary/20">
+                            <h3 className="text-accent-secondary font-medium flex items-center gap-2 text-sm md:text-base">
                                 <FaRobot className="text-base md:text-lg" /> Chat Assistant
                             </h3>
                             <button
                                 onClick={() => setIsOpen(false)}
-                                className="text-gray-400 hover:text-[#64ffda] p-1"
+                                className="text-text-secondary hover:text-accent-secondary p-1"
                             >
                                 <FaTimes className="text-sm md:text-base" />
                             </button>
                         </div>
 
-                        <div className="h-64 sm:h-80 md:h-96 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4 flex-grow">
+                        <div className="h-64 sm:h-80 md:h-96 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4 flex-grow custom-scrollbar">
                             {messages.map((message, index) => (
                                 <div
                                     key={index}
@@ -117,8 +117,8 @@ function ChatBot() {
                                 >
                                     <div
                                         className={`max-w-[85%] sm:max-w-[80%] p-2 md:p-3 rounded-lg text-sm md:text-base ${message.type === 'user'
-                                            ? 'bg-[#64ffda] text-[#0a192f]'
-                                            : 'bg-[#1d2d50] text-gray-300'
+                                            ? 'bg-accent-secondary text-bg-primary font-medium'
+                                            : 'bg-bg-tertiary/50 text-text-primary border border-bg-tertiary'
                                             }`}
                                     >
                                         {message.text}
@@ -128,18 +128,18 @@ function ChatBot() {
                             <div ref={messagesEndRef} />
                         </div>
 
-                        <form onSubmit={handleSubmit} className="p-3 md:p-4 border-t border-gray-700 flex-shrink-0">
+                        <form onSubmit={handleSubmit} className="p-3 md:p-4 border-t border-bg-tertiary flex-shrink-0">
                             <div className="flex gap-2">
                                 <input
                                     type="text"
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     placeholder="Ask about Aditya..."
-                                    className="flex-1 bg-[#0a192f] text-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#64ffda] text-sm md:text-base"
+                                    className="flex-1 bg-bg-primary text-text-primary p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-secondary border border-bg-tertiary text-sm md:text-base placeholder-text-secondary/50"
                                 />
                                 <button
                                     type="submit"
-                                    className="bg-[#64ffda] text-[#0a192f] px-3 md:px-4 py-2 rounded-lg hover:bg-[#64ffda]/90 transition-colors text-sm md:text-base font-medium"
+                                    className="bg-accent-secondary text-bg-primary px-3 md:px-4 py-2 rounded-lg hover:bg-accent-secondary/90 transition-colors text-sm md:text-base font-medium"
                                 >
                                     Send
                                 </button>

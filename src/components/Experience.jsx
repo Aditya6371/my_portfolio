@@ -6,47 +6,58 @@ function Experience() {
 
   return (
     <section id="experience" className="min-h-screen py-20">
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex items-center gap-4 mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold">Experience</h2>
-            <div className="h-px bg-[#64ffda] flex-grow"></div>
+          <div className="flex items-center gap-4 mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary">Experience</h2>
+            <div className="h-px bg-bg-tertiary flex-grow max-w-xs"></div>
           </div>
-          <div className="space-y-8 md:space-y-12">
+
+          <div className="relative border-l-2 border-bg-tertiary ml-3 md:ml-6 space-y-12 pb-12">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="border-l-4 border-[#64ffda] pl-4 md:pl-6 hover:bg-[#112240]/30 rounded-r-lg p-3 md:p-4 transition-colors duration-300"
+                className="relative pl-8 md:pl-12"
               >
-                <div className="flex flex-col sm:flex-row sm:items-center gap-3 md:gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10 flex items-center justify-center flex-shrink-0">
-                    <img
-                      src={exp.logo}
-                      alt={`${exp.company} logo`}
-                      className="w-10 h-10 object-contain"
-                    />
+                {/* Timeline Dot */}
+                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent-primary border-4 border-bg-primary shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
+
+                <div className="bg-bg-secondary p-6 md:p-8 rounded-xl border border-bg-tertiary hover:border-accent-secondary/30 transition-all duration-300 shadow-lg group">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-lg bg-bg-tertiary/50 flex items-center justify-center p-2">
+                        <img
+                          src={exp.logo}
+                          alt={`${exp.company} logo`}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-xl md:text-2xl font-bold text-text-primary group-hover:text-accent-secondary transition-colors">{exp.company}</h3>
+                        <h4 className="text-lg text-accent-secondary font-medium">{exp.position}</h4>
+                      </div>
+                    </div>
+                    <span className="text-sm font-mono text-text-secondary bg-bg-primary/50 px-3 py-1 rounded-full border border-bg-tertiary">{exp.duration}</span>
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <h3 className="text-xl md:text-2xl font-semibold text-gray-300 break-words">{exp.company}</h3>
-                    <h4 className="text-lg md:text-xl text-[#64ffda]">{exp.position}</h4>
-                  </div>
+
+                  <ul className="space-y-3">
+                    {exp.description.map((item, i) => (
+                      <li key={i} className="flex items-start gap-3 text-text-secondary">
+                        <span className="text-accent-secondary mt-1.5 text-xs">▹</span>
+                        <span className="leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="text-sm md:text-base text-gray-400 mb-4">{exp.duration}</p>
-                <ul className="space-y-2">
-                  {exp.description.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-[#64ffda] mt-1.5 flex-shrink-0">▹</span>
-                      <span className="text-sm md:text-base text-gray-300">{item}</span>
-                    </li>
-                  ))}
-                </ul>
               </motion.div>
             ))}
           </div>

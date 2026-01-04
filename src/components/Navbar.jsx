@@ -28,41 +28,34 @@ function Navbar() {
   };
 
   return (
-    <nav className="fixed w-full z-50 bg-gray-900 bg-opacity-90 backdrop-blur-sm">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-14 md:h-16">
-          {<h1 className="text-3xl md:text-4xl lg:text-5xl font-bold underline">
-            <span className="text-gray-500">A</span>
-            <span className="text-[#64ffda] drop-shadow-[0_0_8px_rgba(100,255,218,0.8)]">R</span>
-            <span className="text-gray-500">D</span>
-          </h1>}
-          {/* // <div className="flex items-center">
-            //   <img */}
-          {/* //     src={logo}
-            //     alt="ARD Logo"
-            //     className="h-8 md:h-10 lg:h-12 w-auto object-contain"
-            //   />
-            // </div>} */}
+    <nav className="fixed w-full z-50 bg-bg-primary/90 backdrop-blur-md border-b border-bg-tertiary">
+      <div className="container-custom">
+        <div className="flex justify-between items-center h-16 md:h-20">
+          <Link to="home" smooth={true} duration={500} className="cursor-pointer group">
+            <h1 className="text-2xl md:text-3xl font-bold tracking-tighter">
+              <span className="text-text-primary group-hover:text-accent-secondary transition-colors duration-300">A</span>
+              <span className="text-accent-secondary drop-shadow-sm group-hover:text-accent-primary transition-colors duration-300">R</span>
+              <span className="text-text-primary group-hover:text-accent-secondary transition-colors duration-300">D</span>
+            </h1>
+          </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.href.substring(1)}
                 to={item.href.substring(1)}
                 spy={true}
                 smooth={true}
-                offset={-64}
+                offset={-80}
                 duration={500}
-                isDynamic={true}
-                onClick={() => setActiveMenu(item.href.substring(1))}
-                className={`cursor-pointer transition-colors duration-300 text-sm lg:text-base`}
-                activeClass="!text-[#64ffda]"
-                ignoreCancelEvents={true}
+                onSetActive={() => setActiveMenu(item.href.substring(1))}
+                className="cursor-pointer text-sm font-medium tracking-wide transition-all duration-300 hover:-translate-y-0.5"
+                activeClass="!text-accent-secondary font-bold"
               >
                 <span className={`${activeSection === item.href.substring(1)
-                  ? "text-[#64ffda]"
-                  : "text-gray-400/50 hover:text-gray-400"
+                  ? "text-accent-secondary"
+                  : "text-text-secondary hover:text-accent-secondary"
                   }`}>
                   {item.name}
                 </span>
@@ -71,7 +64,7 @@ function Navbar() {
 
             <button
               onClick={handleResumeClick}
-              className="px-3 lg:px-4 py-1.5 lg:py-2 border border-[#64ffda] text-[#64ffda] rounded hover:bg-[#64ffda]/10 transition-colors duration-300 text-sm lg:text-base"
+              className="px-5 py-2.5 rounded-md border border-accent-secondary text-accent-secondary font-medium text-sm hover:bg-accent-secondary/10 transition-all duration-300 hover:shadow-[0_0_15px_rgba(56,189,248,0.3)]"
             >
               Resume
             </button>
@@ -79,51 +72,51 @@ function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-gray-300 hover:text-[#64ffda] text-lg"
+            className="md:hidden p-2 text-text-primary hover:text-accent-secondary transition-colors"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
           >
-            {isOpen ? <FaTimes /> : <FaBars />}
+            {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 bg-gray-900/95 backdrop-blur-sm">
-            {navItems.map((item) => (
-              <Link
-                key={item.href.substring(1)}
-                to={item.href.substring(1)}
-                spy={true}
-                smooth={true}
-                offset={-64}
-                duration={500}
-                isDynamic={true}
-                onSetActive={() => setActiveSection(item.href.substring(1))}
-                onSetInactive={() => { }}
-                className={`block py-3 px-2 transition-colors duration-300 text-base`}
-                activeClass="!text-[#64ffda]"
-                ignoreCancelEvents={true}
-                onClick={() => setIsOpen(false)}
-              >
-                <span className={`${activeSection === item.href.substring(1)
-                  ? "text-[#64ffda]"
-                  : "text-gray-400/50 hover:text-gray-400"
-                  }`}>
-                  {item.name}
-                </span>
-              </Link>
-            ))}
+          <div className="md:hidden absolute top-16 left-0 w-full bg-bg-primary/95 backdrop-blur-xl border-b border-bg-tertiary shadow-xl">
+            <div className="flex flex-col p-4 space-y-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href.substring(1)}
+                  to={item.href.substring(1)}
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                  onSetActive={() => setActiveSection(item.href.substring(1))}
+                  className="block py-2 text-lg font-medium text-center"
+                  activeClass="!text-accent-secondary"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <span className={`${activeSection === item.href.substring(1)
+                    ? "text-accent-secondary"
+                    : "text-text-secondary hover:text-text-primary"
+                    }`}>
+                    {item.name}
+                  </span>
+                </Link>
+              ))}
 
-            {/* Resume button in mobile menu */}
-            <button
-              onClick={() => {
-                handleResumeClick();
-                setIsOpen(false);
-              }}
-              className="w-full mt-3 px-4 py-2 border border-[#64ffda] text-[#64ffda] rounded hover:bg-[#64ffda]/10 transition-colors duration-300 text-base"
-            >
-              Resume
-            </button>
+              {/* Resume button in mobile menu */}
+              <button
+                onClick={() => {
+                  handleResumeClick();
+                  setIsOpen(false);
+                }}
+                className="w-full mt-4 px-6 py-3 border border-accent-secondary text-accent-secondary rounded-lg font-medium hover:bg-accent-secondary/10 transition-colors"
+              >
+                Resume
+              </button>
+            </div>
           </div>
         )}
       </div>

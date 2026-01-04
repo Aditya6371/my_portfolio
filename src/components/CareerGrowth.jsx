@@ -33,7 +33,7 @@ function CareerGrowth() {
             {
                 label: 'Technical Skills',
                 data: Array(7).fill(0),
-                borderColor: '#64ffda',
+                borderColor: '#64ffda', // Teal
                 backgroundColor: 'rgba(100, 255, 218, 0.1)',
                 tension: 0.4,
                 fill: true
@@ -41,8 +41,8 @@ function CareerGrowth() {
             {
                 label: 'Project Complexity',
                 data: Array(7).fill(0),
-                borderColor: '#a8b2d1',
-                backgroundColor: 'rgba(168, 178, 209, 0.1)',
+                borderColor: '#8892b0', // Slate
+                backgroundColor: 'rgba(136, 146, 176, 0.1)',
                 tension: 0.4,
                 fill: true
             }
@@ -93,18 +93,18 @@ function CareerGrowth() {
                 beginAtZero: true,
                 max: 100,
                 grid: {
-                    color: 'rgba(255, 255, 255, 0.1)'
+                    color: 'rgba(255, 255, 255, 0.05)'
                 },
                 ticks: {
-                    color: '#8892b0'
+                    color: '#8892b0' // Light Slate
                 }
             },
             x: {
                 grid: {
-                    color: 'rgba(255, 255, 255, 0.1)'
+                    color: 'rgba(255, 255, 255, 0.05)'
                 },
                 ticks: {
-                    color: '#8892b0'
+                    color: '#8892b0' // Light Slate
                 }
             }
         },
@@ -116,10 +116,10 @@ function CareerGrowth() {
                 }
             },
             tooltip: {
-                backgroundColor: '#112240',
-                titleColor: '#64ffda',
-                bodyColor: '#a8b2d1',
-                borderColor: '#233554',
+                backgroundColor: '#112240', // Light Navy
+                titleColor: '#64ffda', // Teal
+                bodyColor: '#8892b0', // Light Slate
+                borderColor: '#233554', // Navy
                 borderWidth: 1,
                 padding: 10,
                 displayColors: true,
@@ -135,10 +135,11 @@ function CareerGrowth() {
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-[#112240] p-4 md:p-6 rounded-lg shadow-xl w-full"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-bg-secondary p-4 md:p-6 rounded-2xl border border-bg-tertiary shadow-lg w-full"
         >
-            <h3 className="text-lg md:text-xl font-bold text-[#64ffda] mb-4 md:mb-6 flex items-center gap-2">
+            <h3 className="text-lg md:text-xl font-bold text-accent-secondary mb-4 md:mb-6 flex items-center gap-2">
                 <FaChartLine className="animate-pulse text-base md:text-lg" />
                 Career Growth Analysis
             </h3>
@@ -153,7 +154,7 @@ function CareerGrowth() {
                 {/* Stats section - right side */}
                 <div className="lg:col-span-2 space-y-4 md:space-y-6">
                     <div>
-                        <h4 className="text-gray-300 font-medium mb-3 md:mb-4 text-sm md:text-base">Statistics</h4>
+                        <h4 className="text-text-secondary font-medium mb-3 md:mb-4 text-sm md:text-base">Statistics</h4>
                         <div className="grid grid-cols-2 lg:grid-cols-2 gap-2 md:gap-3">
                             {[
                                 { label: 'Technical Skills', value: '95%' },
@@ -167,17 +168,17 @@ function CareerGrowth() {
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: index * 0.1 + 1 }}
                                     whileHover={{ scale: 1.05 }}
-                                    className="bg-[#0a192f] p-3 md:p-4 rounded-lg text-center"
+                                    className="bg-bg-primary p-3 md:p-4 rounded-xl border border-bg-tertiary text-center"
                                 >
                                     <motion.h4
                                         initial={{ y: 20 }}
                                         animate={{ y: 0 }}
                                         transition={{ delay: index * 0.1 + 1.2 }}
-                                        className="text-[#64ffda] text-lg md:text-xl font-bold mb-1"
+                                        className="text-accent-secondary text-lg md:text-xl font-bold mb-1"
                                     >
                                         {stat.value}
                                     </motion.h4>
-                                    <p className="text-gray-400 text-xs md:text-sm leading-tight">{stat.label}</p>
+                                    <p className="text-text-secondary text-xs md:text-sm leading-tight">{stat.label}</p>
                                 </motion.div>
                             ))}
                         </div>
@@ -188,7 +189,7 @@ function CareerGrowth() {
             {/* Milestones section - full width below */}
             <div className="mt-4 md:mt-6">
                 <div className="space-y-2 md:space-y-3">
-                    <h4 className="text-gray-300 font-medium mb-3 md:mb-4 text-sm md:text-base">Key Milestones</h4>
+                    <h4 className="text-text-secondary font-medium mb-3 md:mb-4 text-sm md:text-base">Key Milestones</h4>
                     <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
                         {careerMilestones.map((milestone, index) => (
                             <motion.div
@@ -196,19 +197,19 @@ function CareerGrowth() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
-                                className="bg-[#0a192f] p-2 md:p-3 rounded-lg"
+                                className="bg-bg-primary p-3 rounded-lg border border-bg-tertiary"
                             >
                                 <div className="flex items-center gap-2 mb-1">
                                     <motion.div
                                         initial={{ scale: 0 }}
                                         animate={{ scale: 1 }}
                                         transition={{ delay: index * 0.1 + 0.1 }}
-                                        className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#64ffda] flex-shrink-0"
+                                        className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-accent-secondary flex-shrink-0"
                                     />
-                                    <span className="text-[#64ffda] font-medium text-xs md:text-sm">{milestone.year}</span>
+                                    <span className="text-accent-secondary font-medium text-xs md:text-sm">{milestone.year}</span>
                                 </div>
-                                <h5 className="text-gray-300 font-medium mb-1 text-xs md:text-sm leading-tight">{milestone.achievement}</h5>
-                                <p className="text-xs text-gray-400 leading-snug">{milestone.skills}</p>
+                                <h5 className="text-text-primary font-medium mb-1 text-xs md:text-sm leading-tight">{milestone.achievement}</h5>
+                                <p className="text-xs text-text-secondary leading-snug">{milestone.skills}</p>
                             </motion.div>
                         ))}
                     </div>

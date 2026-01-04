@@ -9,19 +9,19 @@ function Home() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center py-20 px-4">
-      <div className="container mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl">
+    <section id="home" className="min-h-screen flex items-center justify-center py-20">
+      <div className="container-custom grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="space-y-4 md:space-y-6 order-2 lg:order-1"
+          className="space-y-6 order-2 lg:order-1 text-center lg:text-left"
         >
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-[#64ffda] font-mono text-sm md:text-base"
+            className="text-accent-secondary font-mono text-base tracking-wide"
           >
             {personalInfo.greeting}
           </motion.span>
@@ -29,7 +29,7 @@ function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-gray-300 leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary leading-tight"
           >
             {personalInfo.name}
           </motion.h1>
@@ -37,43 +37,44 @@ function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-gray-400 leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-text-secondary flex items-center gap-2"
           >
+            <span className="text-accent-secondary">&gt;</span>
             {personalInfo.title}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-base md:text-lg text-gray-400 max-w-lg leading-relaxed"
+            className="text-lg text-text-secondary max-w-lg mx-auto lg:mx-0 leading-relaxed"
           >
             {personalInfo.description}
           </motion.p>
 
-          <div className="space-y-4 md:space-y-6 pt-2">
-            <div className="flex space-x-4 md:space-x-6">
+          <div className="space-y-6 pt-4">
+            <div className="flex justify-center lg:justify-start space-x-6">
               <motion.a
-                whileHover={{ y: -2 }}
+                whileHover={{ y: -3 }}
                 href={socialLinks.github}
-                className="text-xl md:text-2xl text-gray-300 hover:text-[#64ffda] transition-colors"
+                className="text-2xl text-text-secondary hover:text-accent-secondary transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <FaGithub />
               </motion.a>
               <motion.a
-                whileHover={{ y: -2 }}
+                whileHover={{ y: -3 }}
                 href={socialLinks.linkedin}
-                className="text-xl md:text-2xl text-gray-300 hover:text-[#64ffda] transition-colors"
+                className="text-2xl text-text-secondary hover:text-accent-secondary transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <FaLinkedin />
               </motion.a>
               <motion.a
-                whileHover={{ y: -2 }}
+                whileHover={{ y: -3 }}
                 href={socialLinks.email}
-                className="text-xl md:text-2xl text-gray-300 hover:text-[#64ffda] transition-colors"
+                className="text-2xl text-text-secondary hover:text-accent-secondary transition-colors"
               >
                 <FaEnvelope />
               </motion.a>
@@ -83,9 +84,10 @@ function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              whileHover={{ y: -2 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={handleResumeClick}
-              className="px-4 md:px-6 py-2 md:py-3 border border-[#64ffda] text-[#64ffda] rounded hover:bg-[#64ffda]/10 transition-colors duration-300 font-mono text-sm md:text-base"
+              className="px-8 py-3 bg-transparent border-2 border-accent-secondary text-accent-secondary rounded-md hover:bg-accent-secondary/10 transition-all duration-300 font-mono text-sm md:text-base font-semibold"
             >
               View Resume
             </motion.button>
@@ -93,56 +95,31 @@ function Home() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
           className="flex justify-center order-1 lg:order-2"
         >
           <div className="relative group">
-            {/* Animated background circles */}
-            <div className="absolute inset-0 -m-4 md:-m-8">
-              <div className="absolute top-0 left-0 w-full h-full rounded-full bg-gradient-to-r from-[#64ffda]/10 to-[#64ffda]/5 blur-2xl group-hover:from-[#64ffda]/20 group-hover:to-[#64ffda]/10 transition-all duration-700"></div>
-              <div className="absolute top-2 left-2 w-[calc(100%-16px)] h-[calc(100%-16px)] rounded-full bg-gradient-to-l from-blue-500/10 to-purple-500/5 blur-xl group-hover:from-blue-500/15 group-hover:to-purple-500/10 transition-all duration-700 delay-100"></div>
-            </div>
+            {/* Techy Orbital Rings */}
+            <div className="absolute inset-0 rounded-full border border-accent-secondary/30 group-hover:border-accent-secondary/60 transition-all duration-500 rounded-full animate-[spin_10s_linear_infinite]"></div>
+            <div className="absolute inset-4 rounded-full border border-accent-primary/20 group-hover:border-accent-primary/50 transition-all duration-500 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
 
             {/* Main profile container */}
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[26rem] xl:h-[26rem]">
-              {/* Hexagonal mask effect */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#64ffda]/20 via-transparent to-blue-500/20 p-0.5 group-hover:from-[#64ffda]/30 group-hover:to-blue-500/30 transition-all duration-500">
-                <div className="w-full h-full rounded-full overflow-hidden bg-[#0a192f] relative">
-                  <img
-                    src={personalInfo.profileImage}
-                    alt={personalInfo.name}
-                    className="w-full h-full object-cover object-center scale-140 group-hover:scale-105 transition-transform duration-700"
-                  />
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f]/10 via-transparent to-transparent group-hover:from-transparent transition-all duration-500"></div>
-                </div>
-              </div>
-
-              {/* Rotating orbital rings */}
-              <div className="absolute inset-0 rounded-full border border-[#64ffda]/30 group-hover:border-[#64ffda]/50 transition-all duration-500 pulse-ring"></div>
-              <div className="absolute inset-[-8px] rounded-full border border-[#64ffda]/20 group-hover:border-[#64ffda]/40 transition-all duration-500 orbital-ring"></div>
-              <div className="absolute inset-[-16px] rounded-full border border-[#64ffda]/10 group-hover:border-[#64ffda]/30 transition-all duration-500 orbital-ring-reverse"></div>
-
-              {/* Floating particles */}
-              <div className="absolute top-4 right-4 w-2 h-2 bg-[#64ffda] rounded-full float-particle opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-8 left-6 w-1.5 h-1.5 bg-blue-400 rounded-full float-particle opacity-50 group-hover:opacity-80 transition-opacity duration-300" style={{ animationDelay: '2s' }}></div>
-              <div className="absolute top-12 left-4 w-1 h-1 bg-purple-400 rounded-full float-particle opacity-40 group-hover:opacity-70 transition-opacity duration-300" style={{ animationDelay: '4s' }}></div>
-              <div className="absolute bottom-4 right-8 w-1.5 h-1.5 bg-[#64ffda] rounded-full float-particle opacity-50 group-hover:opacity-90 transition-opacity duration-300" style={{ animationDelay: '1s' }}></div>
-
-              {/* Scanning line effect */}
-              <div className="absolute inset-0 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#64ffda] to-transparent animate-ping"></div>
-                <div className="absolute bottom-0 right-0 w-full h-0.5 bg-gradient-to-l from-transparent via-blue-400 to-transparent animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-              </div>
-
-              {/* Holographic corner indicators */}
-              <div className="absolute top-2 left-2 w-3 h-3 border-l-2 border-t-2 border-[#64ffda] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-125"></div>
-              <div className="absolute top-2 right-2 w-3 h-3 border-r-2 border-t-2 border-[#64ffda] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-125" style={{ transitionDelay: '0.1s' }}></div>
-              <div className="absolute bottom-2 left-2 w-3 h-3 border-l-2 border-b-2 border-[#64ffda] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-125" style={{ transitionDelay: '0.2s' }}></div>
-              <div className="absolute bottom-2 right-2 w-3 h-3 border-r-2 border-b-2 border-[#64ffda] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-125" style={{ transitionDelay: '0.3s' }}></div>
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-accent-primary/50 shadow-[0_0_30px_rgba(100,255,218,0.3)] group-hover:shadow-[0_0_50px_rgba(100,255,218,0.5)] transition-all duration-500 relative z-10">
+              <div className="absolute inset-0 bg-accent-primary/10 mix-blend-overlay z-20 pointer-events-none"></div>
+              <img
+                src={personalInfo.profileImage}
+                alt={personalInfo.name}
+                className="w-full h-full object-cover object-center scale-100 group-hover:scale-105 transition-transform duration-700 filter grayscale-[20%] group-hover:grayscale-0"
+              />
+              {/* Scanline Effect */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent-primary/10 to-transparent w-full h-2 animate-[scan_2s_linear_infinite] opacity-50 z-30"></div>
             </div>
+
+            {/* Tech decorations */}
+            <div className="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-accent-secondary/60 rounded-tr-3xl"></div>
+            <div className="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-accent-secondary/60 rounded-bl-3xl"></div>
           </div>
         </motion.div>
       </div>
