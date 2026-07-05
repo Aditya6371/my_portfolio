@@ -108,11 +108,12 @@ function About() {
           </div>
         </motion.div>
 
-        <div className="mt-24">
-          {/* Passing theme props if CareerGrowth needs it, or assuming it inherits global styles */}
-          {/* If CareerGrowth was not touched, I should check it. For now leaving as is but contained in mt-24 */}
+        {/* <div className="mt-24">
+          Passing theme props if CareerGrowth needs it, or assuming it inherits global styles 
+          If CareerGrowth was not touched, I should check it. For now leaving as is but contained in mt-24 
           <CareerGrowth />
-        </div>
+        </div> */}
+
       </div>
     </section>
   );
