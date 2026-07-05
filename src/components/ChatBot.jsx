@@ -33,12 +33,12 @@ function ChatBot() {
 
         if (questionLower.includes('projects') || questionLower.includes('portfolio') || questionLower.includes('project')) {
             setTimeout(() => scrollToSection('projects'), 1000);
-            return "Let me show you Aditya's projects. I'm scrolling to the projects section where you can see his work including GreenWave Terratech, Wedium, and other applications.";
+            return "Let me show you Aditya's projects. I'm scrolling to the projects section where you can see his work including the Ultraviolette UV App, NewKommerce suite, GreenWave Terratech, Wedium, and more.";
         }
 
         if (questionLower.includes('experience') || questionLower.includes('work')) {
             setTimeout(() => scrollToSection('experience'), 1000);
-            return "I'll take you to Aditya's work experience. He has worked as a Flutter Developer at Appscrip Pvt Ltd and as an iOS Developer at Concept Infoway Pvt Ltd.";
+            return "I'll take you to Aditya's work experience. He's currently a Flutter Developer at Ultraviolette (contracted via Appscrip), previously built the NewKommerce suite at Appscrip, and worked as an iOS Developer at Concept Infoway.";
         }
 
         if (questionLower.includes('about') || questionLower.includes('who is')) {

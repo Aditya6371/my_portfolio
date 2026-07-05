@@ -6,14 +6,16 @@ import zerologo from "../assets/zero.svg";
 import wediumlogo from "../assets/wedium.png";
 import letschatlogo from "../assets/letschat.png";
 import greenwavelogo from "../assets/greenwave.png";
+import ultravioletteLogo from "../assets/ultraviolette.png";
+import newkommerceLogo from "../assets/newkommerce_icon.jpeg";
 import michibotImage from "../assets/michi_bot.jpeg";
 
 // Personal Information
 export const personalInfo = {
     name: "Aditya Ranjan Das",
-    title: "I build things for mobile and web.",
+    title: "Flutter Developer · 2.5+ years building for mobile & web.",
     greeting: "Hi, my name is",
-    description: "I'm a software developer specializing in building exceptional digital experiences. Currently focused on building accessible, human-centered products.",
+    description: "Flutter developer contracted to Ultraviolette via 3Embed Software Tech (Appscrip), building connected mobility apps with strong UI, REST and WebSocket integrations, and modern state management.",
     email: "adityadas9439@gmail.com",
     phone: "+91 8260625276",
     location: "Bhubaneswar, Odisha, India",
@@ -32,16 +34,19 @@ export const socialLinks = {
 // About Me Content
 export const aboutContent = {
     bio: [
-        "I'm a Software Developer with hands-on experience in Swift, Python, Java, and Flutter, currently engaged in application development at Appscrip Pvt Ltd for web and mobile platforms. I'm passionate about creating scalable, user-friendly applications, with a strong foundation in both professional and personal project development.",
-        "I'm constantly seeking opportunities to further leverage my skills in innovative and challenging environments, with a particular focus on mobile development and emerging technologies."
+        "I'm a Flutter Developer with 3+ years of experience building cross-platform mobile and web applications. I'm currently contracted to Ultraviolette Automotive through 3Embed Software Tech Pvt. Ltd (Appscrip), working on the UV companion app for electric motorcycles. I focus on responsive, high-quality UIs, REST and WebSocket integrations, and state management with BLoC, GetX, and Provider—from implementing Figma designs through production releases.",
+        "I'm skilled with platform channels, third-party integrations, Lottie animations, and performance tuning across Android, iOS, and Web. I also bring prior iOS experience (Swift) and enjoy Python for tooling and automation. I'm always interested in challenging roles that blend Flutter, mobile, and product-minded engineering."
     ]
 };
 
 // Skills Data
 export const skills = {
-    "Programming Languages": ["Swift", "Python", "Java", "Dart"],
-    "Frameworks & Tools": ["Flutter", "Xcode", "Arduino IDE", "RESTful APIs", "GetX"],
-    "Technologies": ["iOS Development", "Bluetooth Communication", "API Integration"],
+    "Flutter / Dart": ["Widgets", "BLoC", "GetX", "Provider", "Platform Channels", "3rd-party integrations", "Lottie animations"],
+    "Languages": ["Dart", "Python", "Swift", "Java"],
+    "API & services": ["REST APIs", "WebSockets", "Firebase"],
+    "Tools & DevOps": ["Git", "GitHub Actions", "Plane", "Figma", "Xcode"],
+    "Platforms": ["Android", "iOS", "Web"],
+    "Other": ["Arduino IDE", "Bluetooth / hardware projects", "iOS development"],
     "Soft Skills": ["Team Collaboration", "Problem-Solving", "Adaptability"]
 };
 
@@ -69,8 +74,13 @@ export const careerMilestones = [
     },
     {
         year: '2025',
-        achievement: 'Flutter Developer at Appscrip',
-        skills: 'Flutter, AI Integration, ML Models'
+        achievement: 'Flutter Developer at 3Embed Software Tech (Appscrip) — NewKommerce suite (Admin, Customer, POS)',
+        skills: 'Flutter (Web/Android/iOS), BLoC, GetX, Provider, REST, WebSockets, production releases'
+    },
+    {
+        year: '2026',
+        achievement: 'Flutter Developer at Ultraviolette Automotive (contract via Appscrip) — UV companion app',
+        skills: 'Flutter (Android/iOS), connected vehicle features, diagnostics, ride analytics, production releases'
     }
 ];
 
@@ -101,16 +111,27 @@ export const education = [
 // Experience Data
 export const experiences = [
     {
-        company: "Appscrip Pvt Ltd",
+        company: "Ultraviolette Automotive Pvt. Ltd",
+        position: "Flutter Developer (Contract via Appscrip)",
+        duration: "June 2026 - Present",
+        logo: ultravioletteLogo,
+        description: [
+            "Flutter Developer on the Ultraviolette UV companion app for Android and iOS, contracted through 3Embed Software Tech (Appscrip).",
+            "Building connected ownership features for electric motorcycles—vehicle location tracking, real-time diagnostics, ride analytics, charge management, and remote controls.",
+            "Implementing responsive UI from design specs, REST and WebSocket integrations, and state management with BLoC, GetX, and Provider for a polished production app.",
+            "Collaborating with Ultraviolette product and engineering teams to ship reliable, performance-oriented mobile experiences for riders."
+        ]
+    },
+    {
+        company: "3Embed Software Tech Pvt. Ltd (Appscrip)",
         position: "Flutter Developer",
         duration: "January 2025 - Present",
         logo: appscripLogo,
         description: [
-            "Developed Flutter web admin portal for restaurant management with AI-powered features including content generation, menu optimization, and review analytics",
-            "Integrated real-time analytics dashboard for monitoring restaurant performance metrics",
-            "Implemented automated content generation system for menu descriptions and promotional materials",
-            "Implemented secure authentication and role-based access control for admin users",
-            "Designed and implemented scalable database architecture for multi-tenant system"
+            "Flutter Developer with 3+ years of experience shipping cross-platform apps; strong UI work, REST/WebSocket integrations, and state management with BLoC, GetX, and Provider; end-to-end feature work from Figma through production on Android, iOS, and Web.",
+            "NewKommerce Admin (Web + Android + iOS) — ecommerce admin panel: end-to-end development across platforms; product and menu management, order tracking, inventory control, promo and discount configuration, and customer management.",
+            "NewKommerce Customer App (Android + iOS) — full-scale customer-facing ecommerce app; integrations including Google Maps, RudderStack, and payment gateways; emphasis on performance and smooth UX.",
+            "NewKommerce POS (Android + Web) — point-of-sale for retail and restaurant: receipt printing, cash drawer integration, table reservations, floor management, and food-ordering workflows; fast, reliable UI for real-time operations."
         ]
     },
     {
@@ -148,6 +169,119 @@ export const experiences = [
 
 // Projects Data
 export const majorProjects = [
+    {
+        title: "Ultraviolette UV App",
+        description: "Companion mobile app for Ultraviolette electric motorcycles—connected ownership on Android and iOS with vehicle tracking, diagnostics, ride analytics, charge limits, and remote controls.",
+        technologies: ["Flutter", "Android", "iOS", "REST APIs", "WebSockets", "Maps", "BLoC / GetX / Provider", "IOT Integrations"],
+        playStore: "https://play.google.com/store/apps/details?id=com.ultraviolette.uvapp",
+        appStore: "https://apps.apple.com/in/app/ultraviolette/id1669915269",
+        category: "Professional · Ultraviolette (via Appscrip)",
+        icon: ultravioletteLogo,
+        bgColor: "from-[#1a0a0a] to-[#2d1515]",
+        year: "2026",
+        status: "In production",
+        features: [
+            "Vehicle location tracking (FindMy)",
+            "Real-time health diagnostics and system insights",
+            "Ride analytics and performance data",
+            "Charge limit and battery management",
+            "Remote controls and connected security features",
+            "Cross-platform Flutter app (Android + iOS)"
+        ],
+        challenges: [
+            {
+                challenge: "Real-time vehicle data reliability",
+                solution: "Structured WebSocket and REST flows with clear loading and error states so riders always see accurate diagnostics and location updates."
+            },
+            {
+                challenge: "Premium UX for a performance brand",
+                solution: "Pixel-accurate Flutter UI with smooth animations and responsive layouts that match Ultraviolette's high-performance product identity."
+            }
+        ]
+    },
+    {
+        title: "NewKommerce Admin",
+        description: "Ecommerce admin panel built with Flutter across Web, Android, and iOS. End-to-end ownership of platform support with features for catalog operations, orders, inventory, promotions, and customers.",
+        technologies: ["Flutter", "Web", "Android", "iOS", "REST APIs", "BLoC / GetX / Provider"],
+        category: "Professional · Appscrip",
+        icon: newkommerceLogo,
+        bgColor: "from-[#0f172a] to-[#1e3a5f]",
+        year: "2025",
+        status: "In production",
+        features: [
+            "Product and menu management",
+            "Order tracking",
+            "Inventory control",
+            "Promo and discount configuration",
+            "Customer management",
+            "Cross-platform admin (Web + Android + iOS)"
+        ],
+        challenges: [
+            {
+                challenge: "Consistent UX across form factors",
+                solution: "Shared Flutter codebase with responsive layouts and platform-aware patterns so admins get the same workflows on desktop web and mobile."
+            },
+            {
+                challenge: "Complex catalog and promo rules",
+                solution: "Structured state and validation layers so discount and inventory rules stay predictable under concurrent edits and API updates."
+            }
+        ]
+    },
+    {
+        title: "NewKommerce Customer App",
+        description: "Full-scale customer-facing ecommerce mobile application for Android and iOS, with third-party integrations and a focus on performance and polished UX.",
+        technologies: ["Flutter", "Android", "iOS", "Google Maps", "RudderStack", "Payments"],
+        category: "Professional · Appscrip",
+        icon: newkommerceLogo,
+        bgColor: "from-[#134e4a] to-[#0f172a]",
+        year: "2025",
+        status: "In production",
+        features: [
+            "End-to-end customer ecommerce flows",
+            "Google Maps integration",
+            "RudderStack analytics integration",
+            "Payment gateway integration",
+            "Performance-oriented UI and navigation"
+        ],
+        challenges: [
+            {
+                challenge: "Maps and checkout reliability",
+                solution: "Clear error boundaries, retry flows, and tested integration paths so location and payments degrade gracefully under poor network conditions."
+            },
+            {
+                challenge: "Smooth UX at scale",
+                solution: "Profiling and list/build optimizations so browsing and checkout stay responsive on mid-range devices."
+            }
+        ]
+    },
+    {
+        title: "NewKommerce POS",
+        description: "Point-of-sale system for retail and restaurant operations on Android and Web—built for speed, hardware integrations, and real-time floor and ordering workflows.",
+        technologies: ["Flutter", "Android", "Web", "Hardware integrations", "Real-time UX"],
+        category: "Professional · Appscrip",
+        icon: newkommerceLogo,
+        bgColor: "from-[#1e1b4b] to-[#312e81]",
+        year: "2025",
+        status: "In production",
+        features: [
+            "Receipt printing",
+            "Cash drawer integration",
+            "Table reservations",
+            "Floor management",
+            "Food ordering workflows",
+            "Fat-finger friendly, fast interactions for staff"
+        ],
+        challenges: [
+            {
+                challenge: "Hardware and timing in busy venues",
+                solution: "Reliable print and drawer flows with explicit success/failure feedback and minimal taps for common actions."
+            },
+            {
+                challenge: "Real-time floor and orders",
+                solution: "Efficient updates and clear state so staff always see current tables and orders without UI lag during peak service."
+            }
+        ]
+    },
     {
         title: "GreenWave Terratech",
         description: "A comprehensive society management application developed using Flutter. Features include resident management, maintenance tracking, and community announcements. Implemented complete UI/UX design and seamless API integration.",
@@ -270,22 +404,22 @@ export const majorProjects = [
 ];
 
 export const minorProjects = [
-    {
-        title: "Multi-Tools Application",
-        technologies: ["Flutter"],
-        description: "A utility application combining multiple tools for everyday use.",
-        category: "Mobile App",
-        year: "2023",
-        status: "Completed",
-        icon: "https://cdn-icons-png.flaticon.com/512/3159/3159310.png", // Wrench and screwdriver tools icon
-        features: [
-            "Calculator with scientific functions",
-            "QR code generator and scanner",
-            "Unit converter for various measurements",
-            "Color picker and palette generator",
-            "Text tools for formatting and conversion"
-        ]
-    },
+    // {
+    //     title: "Multi-Tools Application",
+    //     technologies: ["Flutter"],
+    //     description: "A utility application combining multiple tools for everyday use.",
+    //     category: "Mobile App",
+    //     year: "2023",
+    //     status: "Completed",
+    //     icon: "https://cdn-icons-png.flaticon.com/512/3159/3159310.png", // Wrench and screwdriver tools icon
+    //     features: [
+    //         "Calculator with scientific functions",
+    //         "QR code generator and scanner",
+    //         "Unit converter for various measurements",
+    //         "Color picker and palette generator",
+    //         "Text tools for formatting and conversion"
+    //     ]
+    // },
     {
         title: "Virtual Assistance (Jarvis)",
         technologies: ["Python"],
@@ -343,7 +477,7 @@ export const contactInfo = {
     title: "Get In Touch",
     description: [
         "I'm currently looking for new opportunities and my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
-        "As a passionate developer with experience in mobile and web development, I'm particularly interested in roles that involve Flutter, iOS development, or full-stack opportunities. I bring strong problem-solving skills and a collaborative mindset to every project."
+        "With 3+ years in Flutter across Android, iOS, and Web, I'm especially interested in roles focused on cross-platform product work, solid API design, and shipping polished UIs. I bring strong problem-solving skills and a collaborative mindset to every project."
     ],
     email: personalInfo.email,
     phone: personalInfo.phone,
