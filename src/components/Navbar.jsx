@@ -7,15 +7,23 @@ import { navItems, personalInfo } from "../data/portfolioData";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     Events.scrollEvent.register('begin', () => { });
     Events.scrollEvent.register('end', () => { });
     scrollSpy.update();
 
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
     return () => {
       Events.scrollEvent.remove('begin');
       Events.scrollEvent.remove('end');
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -28,20 +36,26 @@ function Navbar() {
   };
 
   return (
-    <nav className="fixed w-full z-50 bg-bg-primary/90 backdrop-blur-md border-b border-bg-tertiary">
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled
+        ? 'bg-bg-primary/90 backdrop-blur-xl border-b border-bg-tertiary/50 shadow-lg'
+        : 'bg-transparent'
+      }`}>
       <div className="container-custom">
-        <div className="flex justify-between items-center h-16 md:h-20">
+        <div className="flex justify-between items-center h-20">
+          {/* Logo */}
           <Link to="home" smooth={true} duration={500} className="cursor-pointer group">
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tighter">
-              <span className="text-text-primary group-hover:text-accent-secondary transition-colors duration-300">A</span>
-              <span className="text-accent-secondary drop-shadow-sm group-hover:text-accent-primary transition-colors duration-300">R</span>
-              <span className="text-text-primary group-hover:text-accent-secondary transition-colors duration-300">D</span>
-            </h1>
+            <div className="flex items-center gap-2">
+              <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
+                <span className="text-text-primary/60 group-hover:text-text-primary transition-colors duration-300">A</span>
+                <span className="text-accent-secondary group-hover:text-accent-secondary transition-colors duration-300">R</span>
+                <span className="text-text-primary/60 group-hover:text-text-primary transition-colors duration-300">D</span>
+              </h1>
+            </div>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+          <div className="hidden md:flex items-center gap-10">
+            {navItems.map((item, index) => (
               <Link
                 key={item.href.substring(1)}
                 to={item.href.substring(1)}
@@ -50,23 +64,29 @@ function Navbar() {
                 offset={-80}
                 duration={500}
                 onSetActive={() => setActiveMenu(item.href.substring(1))}
-                className="cursor-pointer text-sm font-medium tracking-wide transition-all duration-300 hover:-translate-y-0.5"
-                activeClass="!text-accent-secondary font-bold"
+                className="cursor-pointer group relative"
               >
-                <span className={`${activeSection === item.href.substring(1)
-                  ? "text-accent-secondary"
-                  : "text-text-secondary hover:text-accent-secondary"
+                <span className="text-xs font-mono text-accent-secondary/60 mr-2">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className={`text-sm font-medium transition-all duration-300 ${activeSection === item.href.substring(1)
+                    ? "text-accent-secondary"
+                    : "text-text-secondary hover:text-accent-secondary"
                   }`}>
                   {item.name}
                 </span>
+                {activeSection === item.href.substring(1) && (
+                  <div className="absolute -bottom-1 left-0 right-0 h-px bg-accent-secondary"></div>
+                )}
               </Link>
             ))}
 
             <button
               onClick={handleResumeClick}
-              className="px-5 py-2.5 rounded-md border border-accent-secondary text-accent-secondary font-medium text-sm hover:bg-accent-secondary/10 transition-all duration-300 hover:shadow-[0_0_15px_rgba(56,189,248,0.3)]"
+              className="group px-6 py-3 rounded-lg border border-accent-secondary/50 text-accent-secondary font-medium text-sm hover:border-accent-secondary hover:bg-accent-secondary/5 transition-all duration-300 flex items-center gap-2"
             >
               Resume
+              <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
             </button>
           </div>
 
@@ -82,9 +102,9 @@ function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden absolute top-16 left-0 w-full bg-bg-primary/95 backdrop-blur-xl border-b border-bg-tertiary shadow-xl">
-            <div className="flex flex-col p-4 space-y-4">
-              {navItems.map((item) => (
+          <div className="md:hidden absolute top-20 left-0 w-full bg-bg-primary/95 backdrop-blur-xl border-b border-bg-tertiary/50 shadow-xl">
+            <div className="flex flex-col p-6 space-y-6">
+              {navItems.map((item, index) => (
                 <Link
                   key={item.href.substring(1)}
                   to={item.href.substring(1)}
@@ -93,28 +113,30 @@ function Navbar() {
                   offset={-70}
                   duration={500}
                   onSetActive={() => setActiveSection(item.href.substring(1))}
-                  className="block py-2 text-lg font-medium text-center"
-                  activeClass="!text-accent-secondary"
+                  className="block text-center"
                   onClick={() => setIsOpen(false)}
                 >
-                  <span className={`${activeSection === item.href.substring(1)
-                    ? "text-accent-secondary"
-                    : "text-text-secondary hover:text-text-primary"
+                  <span className="text-xs font-mono text-accent-secondary/60 mr-3">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className={`text-lg font-medium ${activeSection === item.href.substring(1)
+                      ? "text-accent-secondary"
+                      : "text-text-secondary"
                     }`}>
                     {item.name}
                   </span>
                 </Link>
               ))}
 
-              {/* Resume button in mobile menu */}
               <button
                 onClick={() => {
                   handleResumeClick();
                   setIsOpen(false);
                 }}
-                className="w-full mt-4 px-6 py-3 border border-accent-secondary text-accent-secondary rounded-lg font-medium hover:bg-accent-secondary/10 transition-colors"
+                className="w-full mt-4 px-6 py-4 border border-accent-secondary/50 text-accent-secondary rounded-lg font-medium hover:bg-accent-secondary/5 transition-all flex items-center justify-center gap-2"
               >
                 Resume
+                <span>↗</span>
               </button>
             </div>
           </div>

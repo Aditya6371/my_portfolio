@@ -28,7 +28,7 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="min-h-screen py-20">
+    <section id="contact" className="min-h-screen py-32">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,93 +36,95 @@ function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex items-center gap-4 mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-text-primary flex items-center gap-2">
-              <span className="text-accent-secondary text-2xl">04.</span>
-              {contactInfo.title}
-              <span className="animate-pulse text-accent-secondary">_</span>
-            </h2>
-            <div className="h-px bg-bg-tertiary flex-grow max-w-xs relative overflow-hidden">
-              <div className="absolute inset-0 bg-accent-secondary/50 w-full -translate-x-full animate-[shimmer_2s_infinite]"></div>
-            </div>
+          {/* Section Header */}
+          <div className="flex items-center gap-6 mb-20">
+            <span className="text-accent-secondary font-mono text-xl">04</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-text-primary">Get In Touch</h2>
+            <div className="h-px bg-gradient-to-r from-bg-tertiary to-transparent flex-grow"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-            {/* Left Column - Text and Social Icons */}
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+            {/* Left Column - Text and Info */}
             <div className="space-y-8">
-              <p className="text-lg text-text-secondary leading-relaxed">
-                {contactInfo.description[0]}
-              </p>
+              <div className="space-y-6">
+                <h3 className="text-2xl md:text-3xl font-bold text-text-primary leading-tight">
+                  Let's build something<br />together.
+                </h3>
+                
+                <div className="space-y-4 text-base md:text-lg text-text-secondary/90 leading-relaxed">
+                  <p>{contactInfo.description[0]}</p>
+                  <p>{contactInfo.description[1]}</p>
+                </div>
+              </div>
 
-              <p className="text-lg text-text-secondary leading-relaxed">
-                {contactInfo.description[1]}
-              </p>
-
-              <div className="flex flex-wrap gap-6 pt-6">
-                <motion.a
-                  whileHover={{ y: -3 }}
-                  href={socialLinks.github}
-                  className="p-4 bg-bg-secondary rounded-full text-2xl text-text-secondary hover:text-accent-secondary hover:shadow-lg hover:shadow-accent-secondary/20 transition-all duration-300"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="GitHub"
-                >
-                  <FaGithub />
-                </motion.a>
-                <motion.a
-                  whileHover={{ y: -3 }}
-                  href={socialLinks.linkedin}
-                  className="p-4 bg-bg-secondary rounded-full text-2xl text-text-secondary hover:text-accent-secondary hover:shadow-lg hover:shadow-accent-secondary/20 transition-all duration-300"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="LinkedIn"
-                >
-                  <FaLinkedin />
-                </motion.a>
-                <motion.a
-                  whileHover={{ y: -3 }}
-                  href={socialLinks.email}
-                  className="p-4 bg-bg-secondary rounded-full text-2xl text-text-secondary hover:text-accent-secondary hover:shadow-lg hover:shadow-accent-secondary/20 transition-all duration-300"
-                  title="Email"
-                >
-                  <FaEnvelope />
-                </motion.a>
-                <motion.a
-                  whileHover={{ y: -3 }}
-                  href={`tel:${personalInfo.phone}`}
-                  className="p-4 bg-bg-secondary rounded-full text-2xl text-text-secondary hover:text-accent-secondary hover:shadow-lg hover:shadow-accent-secondary/20 transition-all duration-300"
-                  title="Phone"
-                >
-                  <FaPhone />
-                </motion.a>
-                <motion.a
-                  whileHover={{ y: -3 }}
-                  href={socialLinks.whatsapp}
-                  className="p-4 bg-bg-secondary rounded-full text-2xl text-text-secondary hover:text-accent-secondary hover:shadow-lg hover:shadow-accent-secondary/20 transition-all duration-300"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="WhatsApp"
-                >
-                  <FaWhatsapp />
-                </motion.a>
+              {/* Social Links */}
+              <div className="pt-8">
+                <div className="text-xs font-mono text-text-secondary/60 uppercase tracking-widest mb-6">
+                  Connect
+                </div>
+                <div className="flex flex-wrap gap-4">
+                  <motion.a
+                    whileHover={{ y: -3 }}
+                    href={socialLinks.github}
+                    className="p-4 bg-bg-secondary/50 backdrop-blur-sm rounded-xl text-xl text-text-secondary hover:text-accent-secondary hover:bg-bg-secondary border border-bg-tertiary hover:border-accent-secondary/50 transition-all duration-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                  >
+                    <FaGithub />
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ y: -3 }}
+                    href={socialLinks.linkedin}
+                    className="p-4 bg-bg-secondary/50 backdrop-blur-sm rounded-xl text-xl text-text-secondary hover:text-accent-secondary hover:bg-bg-secondary border border-bg-tertiary hover:border-accent-secondary/50 transition-all duration-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                  >
+                    <FaLinkedin />
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ y: -3 }}
+                    href={socialLinks.email}
+                    className="p-4 bg-bg-secondary/50 backdrop-blur-sm rounded-xl text-xl text-text-secondary hover:text-accent-secondary hover:bg-bg-secondary border border-bg-tertiary hover:border-accent-secondary/50 transition-all duration-300"
+                    aria-label="Email"
+                  >
+                    <FaEnvelope />
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ y: -3 }}
+                    href={`tel:${personalInfo.phone}`}
+                    className="p-4 bg-bg-secondary/50 backdrop-blur-sm rounded-xl text-xl text-text-secondary hover:text-accent-secondary hover:bg-bg-secondary border border-bg-tertiary hover:border-accent-secondary/50 transition-all duration-300"
+                    aria-label="Phone"
+                  >
+                    <FaPhone />
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ y: -3 }}
+                    href={socialLinks.whatsapp}
+                    className="p-4 bg-bg-secondary/50 backdrop-blur-sm rounded-xl text-xl text-text-secondary hover:text-accent-secondary hover:bg-bg-secondary border border-bg-tertiary hover:border-accent-secondary/50 transition-all duration-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                  >
+                    <FaWhatsapp />
+                  </motion.a>
+                </div>
               </div>
             </div>
 
             {/* Right Column - Form */}
             <motion.form
               onSubmit={handleSubmit}
-              className="space-y-6 bg-bg-secondary p-8 rounded-2xl border border-bg-tertiary shadow-lg relative overflow-hidden group"
+              className="space-y-6"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-accent-secondary/5 to-transparent pointer-events-none"></div>
-              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-accent-secondary/5 to-transparent pointer-events-none"></div>
-
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-2 font-mono">
-                  <span className="text-accent-secondary mr-2">01.</span>Name
+                <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-3">
+                  Name
                 </label>
                 <input
                   type="text"
@@ -131,14 +133,14 @@ function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-bg-primary border border-bg-tertiary rounded-lg focus:outline-none focus:border-accent-secondary focus:ring-1 focus:ring-accent-secondary text-text-primary transition-all duration-300 font-mono"
+                  className="w-full px-5 py-4 bg-bg-secondary/50 backdrop-blur-sm border border-bg-tertiary rounded-xl focus:outline-none focus:border-accent-secondary focus:ring-2 focus:ring-accent-secondary/20 text-text-primary transition-all duration-300 placeholder:text-text-secondary/40"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-text-primary mb-2 font-mono">
-                  <span className="text-accent-secondary mr-2">02.</span>Email
+                <label htmlFor="email" className="block text-sm font-medium text-text-primary mb-3">
+                  Email
                 </label>
                 <input
                   type="email"
@@ -147,14 +149,14 @@ function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-bg-primary border border-bg-tertiary rounded-lg focus:outline-none focus:border-accent-secondary focus:ring-1 focus:ring-accent-secondary text-text-primary transition-all duration-300 font-mono"
+                  className="w-full px-5 py-4 bg-bg-secondary/50 backdrop-blur-sm border border-bg-tertiary rounded-xl focus:outline-none focus:border-accent-secondary focus:ring-2 focus:ring-accent-secondary/20 text-text-primary transition-all duration-300 placeholder:text-text-secondary/40"
                   placeholder="your@email.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-text-primary mb-2 font-mono">
-                  <span className="text-accent-secondary mr-2">03.</span>Message
+                <label htmlFor="message" className="block text-sm font-medium text-text-primary mb-3">
+                  Message
                 </label>
                 <textarea
                   id="message"
@@ -162,18 +164,20 @@ function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows="4"
-                  className="w-full px-4 py-3 bg-bg-primary border border-bg-tertiary rounded-lg focus:outline-none focus:border-accent-secondary focus:ring-1 focus:ring-accent-secondary text-text-primary resize-vertical transition-all duration-300 font-mono"
+                  rows="6"
+                  className="w-full px-5 py-4 bg-bg-secondary/50 backdrop-blur-sm border border-bg-tertiary rounded-xl focus:outline-none focus:border-accent-secondary focus:ring-2 focus:ring-accent-secondary/20 text-text-primary resize-vertical transition-all duration-300 placeholder:text-text-secondary/40"
                   placeholder="Your message"
                 ></textarea>
               </div>
 
-              <button
+              <motion.button
                 type="submit"
-                className="w-full px-6 py-4 bg-transparent border-2 border-accent-secondary text-accent-secondary rounded-lg hover:bg-accent-secondary/10 transition-all duration-300 font-bold text-lg tracking-wide uppercase font-mono group-hover:shadow-[0_0_20px_rgba(100,255,218,0.2)]"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full px-8 py-5 bg-accent-secondary text-bg-primary rounded-xl font-bold text-base tracking-wide uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(100,255,218,0.3)]"
               >
                 Send Message
-              </button>
+              </motion.button>
             </motion.form>
           </div>
         </motion.div>

@@ -5,6 +5,7 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import React from "react";
 import ChatBot from "./components/ChatBot";
 import DataManagementPanel from "./components/DataManagementPanel";
@@ -20,6 +21,7 @@ function App() {
         <Experience />
         <Contact />
       </div>
+      <Footer />
       <ChatBot />
       {/* <DataManagementPanel /> */}
     </div>
