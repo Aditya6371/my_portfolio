@@ -9,7 +9,7 @@ function About() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.5 }}
         >
           {/* Section Header */}
@@ -108,7 +108,7 @@ function About() {
                   key={category}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.4 }}
                   className="bg-bg-secondary/30 border border-bg-tertiary rounded-xl p-6 hover:border-accent-secondary/30 hover:bg-bg-secondary/50 transition-all duration-300"
                 >
@@ -140,7 +140,7 @@ function About() {
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-bg-secondary/30 border border-bg-tertiary rounded-xl p-6 hover:border-accent-secondary/30 transition-colors duration-300"
                 >
@@ -178,7 +178,7 @@ function About() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.5 }}
             className="mt-16 pt-12 border-t border-bg-tertiary/30"
           >

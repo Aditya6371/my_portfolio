@@ -183,8 +183,8 @@ function Home() {
             {/* Inner subtle glow ring */}
             <div className="absolute inset-4 rounded-full bg-accent-secondary/5 blur-xl group-hover:bg-accent-secondary/10 transition-all duration-700"></div>
 
-            {/* Main profile image container */}
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border border-accent-secondary/30 shadow-[0_0_40px_rgba(100,255,218,0.15)] group-hover:shadow-[0_0_60px_rgba(100,255,218,0.25)] transition-all duration-700 z-10">
+            {/* Main profile image container - Larger on desktop */}
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] xl:w-[500px] xl:h-[500px] rounded-full overflow-hidden border border-accent-secondary/30 shadow-[0_0_40px_rgba(100,255,218,0.15)] group-hover:shadow-[0_0_60px_rgba(100,255,218,0.25)] transition-all duration-700 z-10">
               <motion.img
                 initial={{ opacity: 0, scale: 1.1 }}
                 animate={{ opacity: 1, scale: 1 }}

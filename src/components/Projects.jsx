@@ -12,7 +12,7 @@ function Projects() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.5 }}
         >
           {/* Section Header */}
@@ -33,7 +33,7 @@ function Projects() {
                   key={index}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  viewport={{ once: false, margin: "-100px" }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   onMouseEnter={() => setHoveredProject(index)}
                   onMouseLeave={() => setHoveredProject(null)}
@@ -194,7 +194,7 @@ function Projects() {
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -6 }}
                   className="group bg-bg-secondary/30 backdrop-blur-sm border border-bg-tertiary rounded-xl p-8 hover:border-accent-secondary/50 hover:bg-bg-secondary/50 transition-all duration-300 cursor-default"

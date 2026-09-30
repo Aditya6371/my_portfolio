@@ -268,6 +268,16 @@ After deployment, test:
 - Load times
 - Browser compatibility
 
+### Animation Toggle
+
+Set animation toggle in different section to happen everytime or only once
+```
+viewport={{ once: true }}  // Animates only the first time
+```
+```
+viewport={{ once: false }}  // Animates every time you scroll
+```
+
 ---
 
 **Your premium portfolio is ready! 🎉**

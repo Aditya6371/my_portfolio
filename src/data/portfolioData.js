@@ -487,11 +487,11 @@ export const contactInfo = {
 // Theme Colors
 export const themeColors = {
     primary: "#64ffda",
-    primaryDark: "#0a192f",
-    secondary: "#112240",
-    text: "#ccd6f6",
-    textSecondary: "#8892b0",
-    background: "#0a192f"
+    primaryDark: "#0f0f0f",
+    secondary: "#1a1a1a",
+    text: "#ffffff",
+    textSecondary: "#a3a3a3",
+    background: "#0f0f0f"
 };
 
 // Animation Variants
