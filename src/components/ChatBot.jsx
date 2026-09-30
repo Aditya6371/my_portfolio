@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaRobot, FaTimes, FaChevronUp } from 'react-icons/fa';
+import { FaRobot, FaTimes } from 'react-icons/fa';
 import { scroller } from 'react-scroll';
 
 function ChatBot() {
@@ -24,7 +24,7 @@ function ChatBot() {
             duration: 800,
             delay: 0,
             smooth: 'easeInOutQuart',
-            offset: -64 // Adjust based on your navbar height
+            offset: -80
         });
     };
 
@@ -43,7 +43,7 @@ function ChatBot() {
 
         if (questionLower.includes('about') || questionLower.includes('who is')) {
             setTimeout(() => scrollToSection('about'), 1000);
-            return "Let me show you more about Aditya. He's a Software Developer specializing in mobile development with expertise in Swift, Flutter, and more.";
+            return "Let me show you more about Aditya. He's a Flutter Developer with 3+ years of experience building cross-platform mobile and web applications.";
         }
 
         if (questionLower.includes('contact') || questionLower.includes('reach')) {
@@ -52,11 +52,13 @@ function ChatBot() {
         }
 
         if (questionLower.includes('education') || questionLower.includes('study')) {
-            return "Aditya is pursuing B.Tech in Computer Science from Gandhi Engineering College (2020-2024) with a GPA of 8.29.";
+            return "Aditya completed his B.Tech in Computer Science from Gandhi Engineering College (2020-2024) with a GPA of 8.29.";
         }
+
         if (questionLower.includes('skills') || questionLower.includes('technologies')) {
-            return "Aditya is skilled in Swift, Python, Java, Dart, Flutter, iOS Development, and more. He has experience with RESTful APIs and Bluetooth Communication.";
+            return "Aditya is skilled in Flutter, Dart, Swift, Python, Java, and has experience with REST APIs, WebSockets, BLoC, GetX, Provider, and platform channels.";
         }
+
         return "I'm not sure about that. You can ask me about Aditya's education, skills, experience, projects, or how to contact him.";
     };
 
@@ -77,72 +79,88 @@ function ChatBot() {
             <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                className="fixed bottom-4 right-4 z-50"
+                className="fixed bottom-8 right-8 z-50"
             >
                 {!isOpen && (
-                    <button
+                    <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         onClick={() => setIsOpen(true)}
-                        className="bg-accent-secondary text-bg-primary p-3 md:p-4 rounded-full shadow-lg hover:bg-accent-secondary/90 transition-colors shadow-accent-secondary/20"
+                        className="group bg-accent-secondary text-bg-primary p-4 rounded-full shadow-lg hover:shadow-[0_0_30px_rgba(100,255,218,0.4)] transition-all duration-300"
+                        aria-label="Open chat assistant"
                     >
-                        <FaRobot size={20} className="md:w-6 md:h-6" />
-                    </button>
+                        <FaRobot size={24} />
+                    </motion.button>
                 )}
             </motion.div>
 
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: 100 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 100 }}
-                        className="fixed bottom-4 right-4 w-72 sm:w-80 md:w-96 bg-bg-secondary rounded-lg shadow-2xl z-50 max-h-[80vh] flex flex-col border border-bg-tertiary"
+                        initial={{ opacity: 0, y: 100, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 100, scale: 0.95 }}
+                        className="fixed bottom-8 right-8 w-80 sm:w-96 bg-bg-secondary/95 backdrop-blur-xl rounded-2xl shadow-2xl z-50 max-h-[600px] flex flex-col border border-bg-tertiary/50"
                     >
-                        <div className="p-3 md:p-4 border-b border-bg-tertiary flex justify-between items-center flex-shrink-0 bg-bg-tertiary/20">
-                            <h3 className="text-accent-secondary font-medium flex items-center gap-2 text-sm md:text-base">
-                                <FaRobot className="text-base md:text-lg" /> Chat Assistant
+                        {/* Header */}
+                        <div className="p-5 border-b border-bg-tertiary/50 flex justify-between items-center flex-shrink-0">
+                            <h3 className="text-accent-secondary font-medium flex items-center gap-3">
+                                <FaRobot size={20} />
+                                <span>Ask about my work</span>
                             </h3>
-                            <button
+                            <motion.button
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
                                 onClick={() => setIsOpen(false)}
-                                className="text-text-secondary hover:text-accent-secondary p-1"
+                                className="text-text-secondary hover:text-accent-secondary transition-colors"
+                                aria-label="Close chat"
                             >
-                                <FaTimes className="text-sm md:text-base" />
-                            </button>
+                                <FaTimes size={20} />
+                            </motion.button>
                         </div>
 
-                        <div className="h-64 sm:h-80 md:h-96 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4 flex-grow custom-scrollbar">
+                        {/* Messages */}
+                        <div className="h-96 overflow-y-auto p-5 space-y-4 flex-grow">
                             {messages.map((message, index) => (
-                                <div
+                                <motion.div
                                     key={index}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.2 }}
                                     className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
                                 >
                                     <div
-                                        className={`max-w-[85%] sm:max-w-[80%] p-2 md:p-3 rounded-lg text-sm md:text-base ${message.type === 'user'
-                                            ? 'bg-accent-secondary text-bg-primary font-medium'
-                                            : 'bg-bg-tertiary/50 text-text-primary border border-bg-tertiary'
-                                            }`}
+                                        className={`max-w-[85%] p-3 rounded-xl text-sm leading-relaxed ${
+                                            message.type === 'user'
+                                                ? 'bg-accent-secondary text-bg-primary font-medium'
+                                                : 'bg-bg-tertiary/50 text-text-primary border border-bg-tertiary/50'
+                                        }`}
                                     >
                                         {message.text}
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
                             <div ref={messagesEndRef} />
                         </div>
 
-                        <form onSubmit={handleSubmit} className="p-3 md:p-4 border-t border-bg-tertiary flex-shrink-0">
-                            <div className="flex gap-2">
+                        {/* Input */}
+                        <form onSubmit={handleSubmit} className="p-5 border-t border-bg-tertiary/50 flex-shrink-0">
+                            <div className="flex gap-3">
                                 <input
                                     type="text"
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
-                                    placeholder="Ask about Aditya..."
-                                    className="flex-1 bg-bg-primary text-text-primary p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-secondary border border-bg-tertiary text-sm md:text-base placeholder-text-secondary/50"
+                                    placeholder="Ask about projects, skills..."
+                                    className="flex-1 bg-bg-primary text-text-primary px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent-secondary/50 border border-bg-tertiary/50 text-sm placeholder-text-secondary/50 transition-all"
                                 />
-                                <button
+                                <motion.button
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
                                     type="submit"
-                                    className="bg-accent-secondary text-bg-primary px-3 md:px-4 py-2 rounded-lg hover:bg-accent-secondary/90 transition-colors text-sm md:text-base font-medium"
+                                    className="bg-accent-secondary text-bg-primary px-5 py-3 rounded-xl hover:shadow-[0_0_20px_rgba(100,255,218,0.3)] transition-all font-medium text-sm"
                                 >
                                     Send
-                                </button>
+                                </motion.button>
                             </div>
                         </form>
                     </motion.div>

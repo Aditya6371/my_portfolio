@@ -1,5 +1,5 @@
 // Import assets
-import profilePic from "../assets/profile.jpg";
+import profilePic from "../assets/profile.jpeg";
 import appscripLogo from "../assets/appscrip.jpeg";
 import conceptLogo from "../assets/concept.jpeg";
 import zerologo from "../assets/zero.svg";
@@ -20,7 +20,7 @@ export const personalInfo = {
     phone: "+91 8260625276",
     location: "Bhubaneswar, Odisha, India",
     profileImage: profilePic,
-    resumeUrl: "https://drive.google.com/file/d/1mFTE_MPDoPUbykQ3UHHJ8VWC85U8dIbL/view?usp=share_link"
+    resumeUrl: "https://drive.google.com/file/d/1KR82jY6T1fgYKFxDnPk_cmMpAQIvm4Ri/view?usp=share_link"
 };
 
 // Social Media Links
@@ -487,11 +487,11 @@ export const contactInfo = {
 // Theme Colors
 export const themeColors = {
     primary: "#64ffda",
-    primaryDark: "#0a192f",
-    secondary: "#112240",
-    text: "#ccd6f6",
-    textSecondary: "#8892b0",
-    background: "#0a192f"
+    primaryDark: "#0f0f0f",
+    secondary: "#1a1a1a",
+    text: "#ffffff",
+    textSecondary: "#a3a3a3",
+    background: "#0f0f0f"
 };
 
 // Animation Variants
