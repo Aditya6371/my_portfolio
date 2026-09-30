@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, Events, scrollSpy } from "react-scroll";
+import { Link, Events, scrollSpy, scroller } from "react-scroll";
 import { FaBars, FaTimes } from "react-icons/fa";
 import React from "react";
 import { navItems, personalInfo } from "../data/portfolioData";
@@ -10,20 +10,48 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    // Register scroll events
     Events.scrollEvent.register('begin', () => { });
     Events.scrollEvent.register('end', () => { });
-    scrollSpy.update();
-
+    
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      
+      // Manual scroll detection for all sections
+      const sections = ['home', 'about', 'projects', 'experience', 'contact'];
+      const scrollPosition = window.scrollY + 100; // Offset for navbar height
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionBottom = sectionTop + section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            setActiveSection(sections[i]);
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    
+    // Initial update
+    scrollSpy.update();
+    handleScroll();
+    
+    // Update scroll spy after a short delay to ensure all sections are mounted
+    const timer = setTimeout(() => {
+      scrollSpy.update();
+      handleScroll();
+    }, 100);
 
     return () => {
       Events.scrollEvent.remove('begin');
       Events.scrollEvent.remove('end');
       window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
     };
   }, []);
 
@@ -43,7 +71,15 @@ function Navbar() {
       <div className="container-custom">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="home" smooth={true} duration={500} className="cursor-pointer group">
+          <Link 
+            to="home" 
+            smooth={true} 
+            duration={500} 
+            spy={true}
+            onSetActive={() => setActiveMenu('home')}
+            onClick={() => setActiveMenu('home')}
+            className="cursor-pointer group"
+          >
             <div className="flex items-center gap-2">
               <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
                 <span className="text-text-primary/60 group-hover:text-text-primary transition-colors duration-300">A</span>
@@ -63,7 +99,9 @@ function Navbar() {
                 smooth={true}
                 offset={-80}
                 duration={500}
+                activeClass="active"
                 onSetActive={() => setActiveMenu(item.href.substring(1))}
+                onClick={() => setActiveMenu(item.href.substring(1))}
                 className="cursor-pointer group relative"
               >
                 <span className="text-xs font-mono text-accent-secondary/60 mr-2">
@@ -112,9 +150,13 @@ function Navbar() {
                   smooth={true}
                   offset={-70}
                   duration={500}
+                  activeClass="active"
                   onSetActive={() => setActiveSection(item.href.substring(1))}
+                  onClick={() => {
+                    setActiveSection(item.href.substring(1));
+                    setIsOpen(false);
+                  }}
                   className="block text-center"
-                  onClick={() => setIsOpen(false)}
                 >
                   <span className="text-xs font-mono text-accent-secondary/60 mr-3">
                     {String(index + 1).padStart(2, '0')}
