@@ -68,7 +68,7 @@ function Navbar() {
         ? 'bg-bg-primary/90 backdrop-blur-xl border-b border-bg-tertiary/50 shadow-lg'
         : 'bg-transparent'
       }`}>
-      <div className="container-custom">
+      <div className="container-custom max-w-full">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link 

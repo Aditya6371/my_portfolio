@@ -12,7 +12,7 @@ import DataManagementPanel from "./components/DataManagementPanel";
 
 function App() {
   return (
-    <div className="bg-bg-primary text-text-primary min-h-screen transition-colors duration-300">
+    <div className="bg-bg-primary text-text-primary min-h-screen transition-colors duration-300 overflow-x-hidden">
       <Navbar />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Home />
